@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BBGameResultViewController: UIViewController {
+class GameResultViewController: UIViewController {
 
     @IBOutlet weak var score: UILabel!
     weak var delegate: GameDelegate?

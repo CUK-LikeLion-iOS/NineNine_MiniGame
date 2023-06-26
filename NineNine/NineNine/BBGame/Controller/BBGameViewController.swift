@@ -48,7 +48,15 @@ class BBGameViewController: UIViewController, GameDelegate {
     
     func timeTravel() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 13.0) {
-            pushStackNavigationAddGameDelegate(vc: self, storyBoardID: "BBGameResultVC")
+            let storyboard = UIStoryboard(name: "Ready&Finish", bundle: nil)
+
+            guard let nextVC = storyboard.instantiateViewController(withIdentifier: "GameResultViewController") as? GameResultViewController else {
+                return
+            }
+            
+            nextVC.delegate = self
+            
+            self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
 

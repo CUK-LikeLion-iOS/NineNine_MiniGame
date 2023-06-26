@@ -8,14 +8,14 @@
 import UIKit
 import AVFoundation
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AudioPlayerDelegate, AVAudioPlayerDelegate {
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AudioPlayerDelegate, SelectedGameDelegate, AVAudioPlayerDelegate {
 
-    @IBOutlet weak var gameListHeadView
-    : UIView!
+    @IBOutlet weak var gameListHeadView: UIView!
     @IBOutlet weak var gameContentsTableView: UITableView!
     
-    let data = MainData()
-    var player: AVAudioPlayer! = makeAudioPlayer(audioResource: "Main")
+    let data = HomeData()
+    var gameNumber: Int!
+    var player: AVAudioPlayer? = makeAudioPlayer(audioResource: "Main")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,14 +72,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // 각각의 테이블 뷰 셀에 따라 다른 화면으로 이동하는 부분
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.gameNumber = indexPath.section
         
-        let storyBoardID = data.gameStoryboardIDArray()[indexPath.section]
-        
-        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "\(storyBoardID)") else {
+        let storyboard = UIStoryboard(name: "Ready&Finish", bundle: nil)
+
+        guard let nextVC = storyboard.instantiateViewController(withIdentifier: "StartingViewController") as? StartingViewController else {
             return
         }
-
-        pushNextVCFromMainVC(nextVC: nextVC, mainVC: self, idx: indexPath.section)
+        
+        nextVC.selecetedGameDelegate = self
+        nextVC.audioDelegate = self
+        
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
     func makeViewRoundShape(cornerRadius: CGFloat) {
@@ -121,5 +125,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         player = nil
     }
 
+    /* -------------------- SelectedGameDelegate 필수 구현 메서드 ------------------ */
+    
+    func selectedGameNumber() -> Int {
+        return gameNumber
+    }
 }
 
