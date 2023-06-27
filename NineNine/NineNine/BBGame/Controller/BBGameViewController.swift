@@ -48,9 +48,6 @@ class BBGameViewController: UIViewController, GameDelegate {
     
     func timeTravel() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 13.0) {
-            guard let startingVC = self.navigationController?.viewControllers.first else {
-                return
-            }
             moveToGameResultVC(gameVC: self)
         }
     }
