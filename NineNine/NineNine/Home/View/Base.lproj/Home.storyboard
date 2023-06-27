@@ -13,10 +13,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Main View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="38w-9A-RET">
             <objects>
-                <viewController id="LQt-yi-qne" customClass="MainViewController" customModule="NineNine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LQt-yi-qne" customClass="HomeViewController" customModule="NineNine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l1j-dD-Bgp">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

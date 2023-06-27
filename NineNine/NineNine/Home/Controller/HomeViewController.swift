@@ -103,16 +103,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    // AudioPlayerDelegate 필수 구현 메서드
     func playAudioPlayer() {
         player?.delegate = self
         player?.prepareToPlay()
         player?.play()
     }
     
-    // AudioPlayerDelegate 필수 구현 메서드
     func stopAudioPlayer() {
         player?.stop()
-        player = nil
     }
 
     /* -------------------- SelectedGameDelegate 필수 구현 메서드 ------------------ */
