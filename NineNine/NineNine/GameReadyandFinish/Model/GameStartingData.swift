@@ -15,6 +15,13 @@ struct GameStartingData {
         ("더하기를 하자!", "최대한 빠르게\n덧셈에 대한 정답을\n입력해주세요!", #imageLiteral(resourceName: "BBGameCats")),
         ("곱하기를 하자!", "최대한 빠르게\n곱셈에 대한 정답을\n입력해주세요!", #imageLiteral(resourceName: "BBGameCats"))
     ]
+    private let gameStoryBoardAndViewControllerList: [(String, String)] = [
+        ("TabTabGame", "TabTabGameViewController"),
+        ("ShakeItGame", "ShakeItGameViewController"),
+        ("BBGame", "BBGameViewController"),
+        ("PlusGame", "PlusGameViewController"),
+        ("MultiplyGame", "MultiplyGameViewController")
+    ]
     private let gameStartBtnImages: [UIImage] = [#imageLiteral(resourceName: "GameStartBtn2"), #imageLiteral(resourceName: "GameStartBtn")]
     
     func gameStartingResource() -> [(String, String, UIImage)] {
@@ -23,5 +30,9 @@ struct GameStartingData {
     
     func gameStartBtnImageArray() -> [UIImage] {
         return gameStartBtnImages
+    }
+    
+    func gameStoryBoardAndViewControllers() -> [(String, String)] {
+        return gameStoryBoardAndViewControllerList
     }
 }

@@ -16,6 +16,12 @@ class GameResultViewController: UIViewController {
         super.viewDidLoad()
 
         score.text = "\(delegate?.showGameResult() ?? 0)"
+        timeTravel()
     }
 
+    func timeTravel() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            moveBackToStartingVC(vc: self)
+        }
+    }
 }

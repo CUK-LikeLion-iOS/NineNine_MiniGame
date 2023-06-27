@@ -24,6 +24,11 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate {
             return gameStartingData.gameStartBtnImageArray()
         }
     }
+    var gameSBandVCs: [(String, String)] {
+        get {
+            return gameStartingData.gameStoryBoardAndViewControllers()
+        }
+    }
 
     
     override func viewDidLoad() {
@@ -33,11 +38,11 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         gameStartBtn.image = gameStartBtnImages[0]
+        audioDelegate?.playAudioPlayer()
     }
     
     func renderSelectedGameResource() {
         guard let gameNumber = selecetedGameDelegate?.selectedGameNumber() else {
-            print("Hi")
             return
         }
         let gameStartingResource = gameStartingData.gameStartingResource()
@@ -54,18 +59,14 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate {
     }
 
     @IBAction func moveBack(_ sender: UIButton) {
-        popStackNavigation(vc: self)
+        moveBackToHomeVC(vc: self)
     }
 
     @IBAction func moveGameView(_ sender: UIButton) {
-        // 분기처리 여전히 필요,,, 일단 Stack Navigation하는 부분 모듈화가 최우선
-        let storyboard = UIStoryboard(name: "BBGame", bundle: nil)
-
-        guard let nextVC = storyboard.instantiateViewController(withIdentifier: "BBGameViewController") as? BBGameViewController else {
+        guard let gameNumber = selecetedGameDelegate?.selectedGameNumber() else {
             return
         }
-        
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        moveToGameVC(startingVC: self, gameSBandVC: gameSBandVCs[gameNumber])
 
         audioDelegate?.stopAudioPlayer() // 게임 스타트 버튼 눌리면 Main BGM 꺼짐
         player?.delegate = self
