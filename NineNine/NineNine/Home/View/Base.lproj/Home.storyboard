@@ -141,25 +141,25 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNz-tg-Mnz">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="194.66666666666666"/>
                                                         <subviews>
-                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cg3-qW-of0">
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cg3-qW-of0">
                                                                 <rect key="frame" x="55" y="-30" width="283" height="274.66666666666669"/>
                                                                 <color key="sectionIndexBackgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <prototypes>
                                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="gameContentCell" id="fwc-hv-UkZ" customClass="GameContentsTableViewCell" customModule="NineNine" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="50" width="283" height="60"/>
+                                                                        <rect key="frame" x="0.0" y="50" width="283" height="50"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fwc-hv-UkZ" id="WCq-7K-9rz">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="283" height="60"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="283" height="50"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <subviews>
                                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WXb-ol-ddI">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="283" height="60"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="283" height="50"/>
                                                                                     <subviews>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADt-0q-2Ww">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="70.666666666666671" height="60"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="70.666666666666671" height="50"/>
                                                                                             <subviews>
                                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabtab" translatesAutoresizingMaskIntoConstraints="NO" id="F7X-bU-tbw">
-                                                                                                    <rect key="frame" x="9.9999999999999964" y="10" width="50.666666666666657" height="40"/>
+                                                                                                    <rect key="frame" x="9.9999999999999964" y="10" width="50.666666666666657" height="30"/>
                                                                                                 </imageView>
                                                                                             </subviews>
                                                                                             <constraints>
@@ -170,10 +170,10 @@
                                                                                             </constraints>
                                                                                         </view>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Mg-Bk-fog">
-                                                                                            <rect key="frame" x="70.666666666666671" y="0.0" width="71.000000000000014" height="60"/>
+                                                                                            <rect key="frame" x="70.666666666666671" y="0.0" width="71.000000000000014" height="50"/>
                                                                                             <subviews>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="탭탭!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRO-Hj-Jdd">
-                                                                                                    <rect key="frame" x="8" y="23" width="30" height="14.333333333333336"/>
+                                                                                                    <rect key="frame" x="8" y="18" width="30" height="14.333333333333336"/>
                                                                                                     <fontDescription key="fontDescription" name="NanumGothicOTFExtraBold" family="NanumGothicOTF" pointSize="13"/>
                                                                                                     <nil key="textColor"/>
                                                                                                     <nil key="highlightedColor"/>
@@ -185,10 +185,10 @@
                                                                                             </constraints>
                                                                                         </view>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0St-oY-e5F">
-                                                                                            <rect key="frame" x="141.66666666666666" y="0.0" width="70.666666666666657" height="60"/>
+                                                                                            <rect key="frame" x="141.66666666666666" y="0.0" width="70.666666666666657" height="50"/>
                                                                                         </view>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxR-TQ-Jxp">
-                                                                                            <rect key="frame" x="212.33333333333334" y="0.0" width="70.666666666666657" height="60"/>
+                                                                                            <rect key="frame" x="212.33333333333334" y="0.0" width="70.666666666666657" height="50"/>
                                                                                         </view>
                                                                                     </subviews>
                                                                                 </stackView>
