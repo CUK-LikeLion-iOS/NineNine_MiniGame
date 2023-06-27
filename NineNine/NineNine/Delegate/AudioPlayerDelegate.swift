@@ -9,6 +9,7 @@ import UIKit
 
 protocol AudioPlayerDelegate: AnyObject {
     func stopAudioPlayer()
+    func playAudioPlayer()
 }
 
 // AnyObject를 따르도록 한 이유 https://jusung.github.io/classOnlyProtocol/

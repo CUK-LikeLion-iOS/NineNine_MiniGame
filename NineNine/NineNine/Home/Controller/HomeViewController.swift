@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AudioPlayerDelegate, SelectedGameDelegate, AVAudioPlayerDelegate {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AudioPlayerDelegate, SelectedGameDelegate, AVAudioPlayerDelegate {
 
     @IBOutlet weak var gameListHeadView: UIView!
     @IBOutlet weak var gameContentsTableView: UITableView!
@@ -70,20 +70,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         return data.gameTitleArray().count
     }
     
-    // 각각의 테이블 뷰 셀에 따라 다른 화면으로 이동하는 부분
+    // 각각의 테이블 뷰 셀에 따라 다른 게임 시작 화면으로 이동하는 부분
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.gameNumber = indexPath.section
-        
-        let storyboard = UIStoryboard(name: "Ready&Finish", bundle: nil)
-
-        guard let nextVC = storyboard.instantiateViewController(withIdentifier: "StartingViewController") as? StartingViewController else {
-            return
-        }
-        
-        nextVC.selecetedGameDelegate = self
-        nextVC.audioDelegate = self
-        
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        moveToStartingVC(mainVC: self)
     }
 
     func makeViewRoundShape(cornerRadius: CGFloat) {
