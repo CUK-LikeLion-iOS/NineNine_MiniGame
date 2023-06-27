@@ -40,10 +40,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     // Return the number of rows for the table.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 5
     }
     
-
     // 각 셀의 이미지와 타이틀 레이블 설정하는 부분
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -51,8 +50,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let gameTitleArray: [String] = data.gameTitleArray()
         let gameImageArray: [UIImage] = data.gameImageArray()
         
-        cell.gameTitleLabel.text = gameTitleArray[indexPath.section]
-        cell.gameImageView.image = gameImageArray[indexPath.section]
+//        cell.gameTitleLabel.text = gameTitleArray[indexPath.section]
+//        cell.gameImageView.image = gameImageArray[indexPath.section]
+        cell.gameTitleLabel.text = gameTitleArray[indexPath.row]
+        cell.gameImageView.image = gameImageArray[indexPath.row]
         
         return cell
     }
@@ -63,16 +64,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     /* ---------------- UITableView 관련 메서드 ---------------- */
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 1
+        return 0
     }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return data.gameTitleArray().count
-    }
+//
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return data.gameTitleArray().count
+//    }
     
     // 각각의 테이블 뷰 셀에 따라 다른 게임 시작 화면으로 이동하는 부분
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.gameNumber = indexPath.section
+//        self.gameNumber = indexPath.section
+        self.gameNumber = indexPath.row
         moveToStartingVC(mainVC: self)
     }
 

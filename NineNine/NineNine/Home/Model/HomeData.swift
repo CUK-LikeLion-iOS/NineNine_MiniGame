@@ -8,9 +8,8 @@
 import UIKit
 
 struct HomeData {
-    private let gameTitles: [String] = ["탭탭!", "쉐킷쉐킷!", "부비부비"]
-    private let gameImages: [UIImage] = [#imageLiteral(resourceName: "tabtab"), #imageLiteral(resourceName: "Shake"), #imageLiteral(resourceName: "swipe")]
-    private let gameStoryboardIDs: [String] = ["TTStartingVC", "ShShStartingVC", "BBStartingVC", "PlusStartingVC", "MultiplyStartingVC"]
+    private let gameTitles: [String] = ["탭탭", "쉐킷쉐킷", "부비부비", "더하기를 하자!", "곱하기를 하자!"]
+    private let gameImages: [UIImage] = [#imageLiteral(resourceName: "tabtab"), #imageLiteral(resourceName: "Shake"), #imageLiteral(resourceName: "swipe"), #imageLiteral(resourceName: "swipe"), #imageLiteral(resourceName: "swipe")]
     
     func gameTitleArray() -> [String] {
         return gameTitles
@@ -18,9 +17,5 @@ struct HomeData {
     
     func gameImageArray() -> [UIImage] {
         return gameImages
-    }
-    
-    func gameStoryboardIDArray() -> [String] {
-        return gameStoryboardIDs
     }
 }
