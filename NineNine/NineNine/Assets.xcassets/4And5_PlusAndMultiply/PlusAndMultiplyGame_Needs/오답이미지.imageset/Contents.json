@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "오답이미지.png",
+      "filename" : "오답이미지.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "오답이미지@2x.png",
+      "filename" : "오답이미지@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "오답이미지@3x.png",
+      "filename" : "오답이미지@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
