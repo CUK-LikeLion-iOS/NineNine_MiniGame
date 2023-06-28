@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "탭탭.png",
+      "filename" : "탭탭.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "탭탭@2x.png",
+      "filename" : "탭탭@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "탭탭@3x.png",
+      "filename" : "탭탭@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
