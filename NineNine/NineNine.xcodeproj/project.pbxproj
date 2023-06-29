@@ -36,6 +36,8 @@
 		CCD55F1F2A44AF4900AD3206 /* StackNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD55F1E2A44AF4900AD3206 /* StackNavigation.swift */; };
 		CCEC338F2A46C1F2006D2109 /* GameResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC338E2A46C1F2006D2109 /* GameResultViewController.swift */; };
 		CCEC33912A46C7C7006D2109 /* GameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC33902A46C7C7006D2109 /* GameDelegate.swift */; };
+		FF910BD92A4D525800B231E9 /* MultiplyGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF910BD82A4D525800B231E9 /* MultiplyGame.storyboard */; };
+		FF910BDF2A4D529700B231E9 /* MultiplyGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF910BDE2A4D529700B231E9 /* MultiplyGameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		CCD55F1E2A44AF4900AD3206 /* StackNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackNavigation.swift; sourceTree = "<group>"; };
 		CCEC338E2A46C1F2006D2109 /* GameResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewController.swift; sourceTree = "<group>"; };
 		CCEC33902A46C7C7006D2109 /* GameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDelegate.swift; sourceTree = "<group>"; };
+		FF910BD82A4D525800B231E9 /* MultiplyGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MultiplyGame.storyboard; sourceTree = "<group>"; };
+		FF910BDE2A4D529700B231E9 /* MultiplyGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplyGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +114,8 @@
 		CC5D8DDF2A1928AA0089A850 /* NineNine */ = {
 			isa = PBXGroup;
 			children = (
+				FF910BD32A4D51D600B231E9 /* MultiplyGame */,
 				CC637CDD2A4A134D0003DA93 /* GameReadyandFinish */,
-				CC637CD92A4A0CB90003DA93 /* MultiplyGame */,
 				CC637CD52A4A0C970003DA93 /* PlusGame */,
 				CC637CD12A4A0C710003DA93 /* TabTabGame */,
 				CC637CCD2A4A0C4B0003DA93 /* ShakeItGame */,
@@ -315,37 +319,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		CC637CD92A4A0CB90003DA93 /* MultiplyGame */ = {
-			isa = PBXGroup;
-			children = (
-				CC637CDC2A4A0CD60003DA93 /* Model */,
-				CC637CDB2A4A0CD10003DA93 /* View */,
-				CC637CDA2A4A0CC60003DA93 /* Controller */,
-			);
-			path = MultiplyGame;
-			sourceTree = "<group>";
-		};
-		CC637CDA2A4A0CC60003DA93 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		CC637CDB2A4A0CD10003DA93 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		CC637CDC2A4A0CD60003DA93 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		CC637CDD2A4A134D0003DA93 /* GameReadyandFinish */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +365,39 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
+		FF910BD32A4D51D600B231E9 /* MultiplyGame */ = {
+			isa = PBXGroup;
+			children = (
+				FF910BD72A4D523D00B231E9 /* Model */,
+				FF910BD62A4D523B00B231E9 /* View */,
+				FF910BD52A4D523600B231E9 /* Controller */,
+			);
+			path = MultiplyGame;
+			sourceTree = "<group>";
+		};
+		FF910BD52A4D523600B231E9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FF910BDE2A4D529700B231E9 /* MultiplyGameViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FF910BD62A4D523B00B231E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FF910BD82A4D525800B231E9 /* MultiplyGame.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FF910BD72A4D523D00B231E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -424,6 +430,7 @@
 				TargetAttributes = {
 					CC5D8DDC2A1928AA0089A850 = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -458,6 +465,7 @@
 				CC737CA92A46127100841C99 /* Game.m4a in Resources */,
 				CC4E09E62A1931DC00B7ED08 /* NanumGothicExtraBold.otf in Resources */,
 				CC637CE12A4A13BD0003DA93 /* ReadyandFinish.storyboard in Resources */,
+				FF910BD92A4D525800B231E9 /* MultiplyGame.storyboard in Resources */,
 				CC637CC92A4A0BD00003DA93 /* BBGame.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,6 +497,7 @@
 				CCCAFAF92A49BFC400D79EDD /* GameTimer.swift in Sources */,
 				CC0362CA2A4A169F00A308C1 /* SelectedGameDelegate.swift in Sources */,
 				CC737CAC2A4616A100841C99 /* AudioPlayerDelegate.swift in Sources */,
+				FF910BDF2A4D529700B231E9 /* MultiplyGameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +642,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YWNQ4RZBTS;
@@ -655,6 +665,8 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "NineNine/MultiplyGame/Controller/NineNine-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -665,6 +677,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YWNQ4RZBTS;
@@ -687,6 +700,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "NineNine/MultiplyGame/Controller/NineNine-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
