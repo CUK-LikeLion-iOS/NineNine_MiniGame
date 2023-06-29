@@ -15,15 +15,23 @@ class BBGameViewController: UIViewController, GameDelegate {
     @IBOutlet weak var scoreView: UIView!
     @IBOutlet weak var countDownView: UIView!
 
-    let gamseResource: BBGameData = BBGameData()
     var score: Int = 0
+    let gameResource: BBGameData = BBGameData()
+    var swipingCatImageList: [UIImage] {
+        get {
+            return gameResource.swipingCatImageArray()
+        }
+    }
+    var fishThumbImage: UIImage {
+        return gameResource.fishThumbImage()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         scoreLabel.text = "\(score)"
-        slider.setThumbImage(gamseResource.fishThumbImage(), for: .normal) // 슬라이더의 thumb가 터치되지 않았을 때
-        slider.setThumbImage(gamseResource.fishThumbImage(), for: .highlighted) // thumb가 터치되었을 때
+        slider.setThumbImage(fishThumbImage, for: .normal) // 슬라이더의 thumb가 터치되지 않았을 때
+        slider.setThumbImage(fishThumbImage, for: .highlighted) // thumb가 터치되었을 때
         
         makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
         countDownBeforeGame(countDownView: countDownView)
@@ -31,8 +39,7 @@ class BBGameViewController: UIViewController, GameDelegate {
     }
     
     @IBAction func sliderAction(_ sender: UISlider) {
-        let swipingCatImages = gamseResource.swipingCatImageArray()
-        let image: UIImage = sender.value < 0.5 ? swipingCatImages[0] : swipingCatImages[1]
+        let image: UIImage = sender.value < 0.5 ? swipingCatImageList[0] : swipingCatImageList[1]
 
         if (catImage.image != image) {
             catImage.image = image
