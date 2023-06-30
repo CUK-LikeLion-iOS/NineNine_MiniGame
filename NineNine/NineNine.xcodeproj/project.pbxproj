@@ -114,9 +114,9 @@
 		CC5D8DDF2A1928AA0089A850 /* NineNine */ = {
 			isa = PBXGroup;
 			children = (
+				FF9693272A4E8AF4001C1BD4 /* PlusGame */,
 				FF910BD32A4D51D600B231E9 /* MultiplyGame */,
 				CC637CDD2A4A134D0003DA93 /* GameReadyandFinish */,
-				CC637CD52A4A0C970003DA93 /* PlusGame */,
 				CC637CD12A4A0C710003DA93 /* TabTabGame */,
 				CC637CCD2A4A0C4B0003DA93 /* ShakeItGame */,
 				CC637CC52A4A0A510003DA93 /* BBGame */,
@@ -288,37 +288,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		CC637CD52A4A0C970003DA93 /* PlusGame */ = {
-			isa = PBXGroup;
-			children = (
-				CC637CD82A4A0CB20003DA93 /* Model */,
-				CC637CD72A4A0CA70003DA93 /* View */,
-				CC637CD62A4A0C9F0003DA93 /* Controller */,
-			);
-			path = PlusGame;
-			sourceTree = "<group>";
-		};
-		CC637CD62A4A0C9F0003DA93 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		CC637CD72A4A0CA70003DA93 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		CC637CD82A4A0CB20003DA93 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		CC637CDD2A4A134D0003DA93 /* GameReadyandFinish */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +361,37 @@
 			sourceTree = "<group>";
 		};
 		FF910BD72A4D523D00B231E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FF9693272A4E8AF4001C1BD4 /* PlusGame */ = {
+			isa = PBXGroup;
+			children = (
+				FF96932A2A4E8B0A001C1BD4 /* Model */,
+				FF9693292A4E8B07001C1BD4 /* View */,
+				FF9693282A4E8B04001C1BD4 /* Controller */,
+			);
+			path = PlusGame;
+			sourceTree = "<group>";
+		};
+		FF9693282A4E8B04001C1BD4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FF9693292A4E8B07001C1BD4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FF96932A2A4E8B0A001C1BD4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -665,7 +665,6 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "NineNine/MultiplyGame/Controller/NineNine-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -700,7 +699,6 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "NineNine/MultiplyGame/Controller/NineNine-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
