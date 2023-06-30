@@ -66,7 +66,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     // 각 셀의 이미지와 타이틀 레이블 설정하는 부분
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = gameContentsTableView.dequeueReusableCell(withIdentifier: "gameContentCell", for: indexPath) as! GameContentsTableViewCell
+        let cell = gameContentsTableView.dequeueReusableCell(withIdentifier: "GameListCell", for: indexPath) as! GameContentsTableViewCell
 
         cell.gameTitleLabel.text = gameTitleList[indexPath.row]
         cell.gameImageView.image = gameImageList[indexPath.row]
