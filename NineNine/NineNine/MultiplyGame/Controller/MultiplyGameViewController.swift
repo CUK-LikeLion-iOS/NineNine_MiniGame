@@ -8,22 +8,24 @@
 import UIKit
 
 class MultiplyGameViewController: UIViewController {
-
+    
+    var gameTimer : GameTimer?
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var countDownView: UIView!
+    
+    @IBOutlet weak var timeBar: UIProgressView!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        countDownBeforeGame(countDownView: countDownView)
 
-        // Do any additional setup after loading the view.
+        
+        gameTimer = GameTimer(controller: self, timeBar: timeBar, timeLabel: timeLabel)
+        gameTimer?.startTimer()
+
     }
+
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
