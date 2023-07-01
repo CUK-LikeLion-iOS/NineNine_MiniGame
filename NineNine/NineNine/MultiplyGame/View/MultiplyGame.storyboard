@@ -151,46 +151,52 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Lxr-Lv-6r5">
                                         <rect key="frame" x="0.0" y="253" width="393" height="253"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XDh-ln-bZa">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="126.66666666666667"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hNW-Np-973" userLabel="quizView">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="253"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcb-IH-N54">
-                                                        <rect key="frame" x="0.0" y="0.0" width="131" height="126.66666666666667"/>
-                                                        <fontDescription key="fontDescription" name="NanumGothicOTFExtraBold" family="NanumGothicOTF" pointSize="77"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cZ-bA-mef">
-                                                        <rect key="frame" x="131" y="0.0" width="131" height="126.66666666666667"/>
-                                                        <fontDescription key="fontDescription" name="NanumGothicOTFExtraBold" family="NanumGothicOTF" pointSize="60"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOZ-Lc-lGv">
-                                                        <rect key="frame" x="262" y="0.0" width="131" height="126.66666666666667"/>
-                                                        <fontDescription key="fontDescription" name="NanumGothicOTFExtraBold" family="NanumGothicOTF" pointSize="77"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XDh-ln-bZa">
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="126.66666666666667"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcb-IH-N54">
+                                                                <rect key="frame" x="0.0" y="0.0" width="131" height="126.66666666666667"/>
+                                                                <fontDescription key="fontDescription" name="NanumGothicOTFExtraBold" family="NanumGothicOTF" pointSize="77"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cZ-bA-mef">
+                                                                <rect key="frame" x="131" y="0.0" width="131" height="126.66666666666667"/>
+                                                                <fontDescription key="fontDescription" name="NanumGothicOTFExtraBold" family="NanumGothicOTF" pointSize="60"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOZ-Lc-lGv">
+                                                                <rect key="frame" x="262" y="0.0" width="131" height="126.66666666666667"/>
+                                                                <fontDescription key="fontDescription" name="NanumGothicOTFExtraBold" family="NanumGothicOTF" pointSize="77"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btm-ge-twV" userLabel="inputView">
+                                                        <rect key="frame" x="0.0" y="126.66666666666669" width="393" height="126.33333333333331"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFc-2f-4hg">
+                                                                <rect key="frame" x="30" y="20" width="333" height="86.333333333333329"/>
+                                                                <color key="backgroundColor" red="0.96114498380000002" green="0.89170986409999997" blue="0.70293635129999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" name="NanumGothicOTFExtraBold" family="NanumGothicOTF" pointSize="39"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="WFc-2f-4hg" firstAttribute="top" secondItem="btm-ge-twV" secondAttribute="top" constant="20" id="9kq-ES-byD"/>
+                                                            <constraint firstItem="WFc-2f-4hg" firstAttribute="leading" secondItem="btm-ge-twV" secondAttribute="leading" constant="30" id="Fxl-Pf-tXn"/>
+                                                            <constraint firstAttribute="bottom" secondItem="WFc-2f-4hg" secondAttribute="bottom" constant="20" id="g5B-RF-7lH"/>
+                                                            <constraint firstAttribute="trailing" secondItem="WFc-2f-4hg" secondAttribute="trailing" constant="30" id="u5d-lU-HrF"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btm-ge-twV">
-                                                <rect key="frame" x="0.0" y="126.66666666666669" width="393" height="126.33333333333331"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LwW-yd-ya5">
-                                                        <rect key="frame" x="30" y="10" width="333" height="106.33333333333333"/>
-                                                        <color key="backgroundColor" red="0.96114498380000002" green="0.89170986409999997" blue="0.70293635129999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="LwW-yd-ya5" secondAttribute="trailing" constant="30" id="C1T-2E-fnh"/>
-                                                    <constraint firstItem="LwW-yd-ya5" firstAttribute="top" secondItem="btm-ge-twV" secondAttribute="top" constant="10" id="Cnv-6t-ME7"/>
-                                                    <constraint firstAttribute="bottom" secondItem="LwW-yd-ya5" secondAttribute="bottom" constant="10" id="Kna-2W-C29"/>
-                                                    <constraint firstItem="LwW-yd-ya5" firstAttribute="leading" secondItem="btm-ge-twV" secondAttribute="leading" constant="30" id="krP-02-ZLw"/>
-                                                </constraints>
-                                            </view>
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4g-yF-tMk">
@@ -357,9 +363,12 @@
                         <outlet property="homeImage" destination="W4x-bj-D6t" id="agW-w9-kCC"/>
                         <outlet property="operand1Label" destination="hcb-IH-N54" id="0Ic-cN-Fle"/>
                         <outlet property="operand2Label" destination="cOZ-Lc-lGv" id="yfJ-1P-sob"/>
-                        <outlet property="secondView" destination="Lxr-Lv-6r5" id="hyf-b5-PgR"/>
+                        <outlet property="quizView" destination="hNW-Np-973" id="NLI-67-3bR"/>
+                        <outlet property="scoreLabel" destination="QaI-fV-nZd" id="vg6-FE-kH3"/>
+                        <outlet property="scoreView" destination="tfJ-hT-06y" id="5Dc-pQ-vbx"/>
                         <outlet property="timeBar" destination="5Uu-Y5-H4e" id="Vgf-VN-koG"/>
                         <outlet property="timeLabel" destination="pDF-Ix-17P" id="zhc-2U-UO7"/>
+                        <outlet property="userInputLabel" destination="WFc-2f-4hg" id="fzp-IR-POE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
