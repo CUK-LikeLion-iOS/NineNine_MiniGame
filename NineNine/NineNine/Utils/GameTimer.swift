@@ -62,6 +62,7 @@ class GameTimer {
                     self.timeLabel.text = "\(formattedRemainingTime)"
                 }
                 if self.remainingTime <= 0 {
+                    self.timeLabel.text = "0.00"
                     self.timer?.cancel()
                     self.timerExpired()
                 }
