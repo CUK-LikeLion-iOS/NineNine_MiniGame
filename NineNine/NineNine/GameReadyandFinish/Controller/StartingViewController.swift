@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import Network
 
 class StartingViewController: UIViewController, AVAudioPlayerDelegate {
 
@@ -19,6 +20,8 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate {
     weak var selecetedGameDelegate: SelectedGameDelegate?
     var player: AVAudioPlayer? = makeAudioPlayer(audioResource: "Game")
     let gameStartingData = GameData()
+    var isConnectedNetwork = true
+    let monitor = NWPathMonitor()
     var gameStartBtnImages: [UIImage] {
         get {
             return gameStartingData.gameStartBtnImageArray()
@@ -36,6 +39,10 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate {
         renderSelectedGameResource()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        // https://velog.io/@ellyheetov/errorhandling01 <- 알림창을 DidAppear에 띄어야하는 이유
+        detectNetworkConnected()
+    }
     override func viewWillAppear(_ animated: Bool) {
         gameStartBtn.image = gameStartBtnImages[0]
         audioDelegate?.playAudioPlayer()
@@ -80,5 +87,25 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         weak var audioPlayer = player
         audioPlayer = nil
+    }
+    
+    /* ------------------------- 네트워크 관련 메서드 ---------------------------- */
+    
+    func detectNetworkConnected() {
+        self.monitor.start(queue: DispatchQueue.global())
+        // self.isConnectedNetwork로 조건문 검사를 하는 이유 -> 빼고 검사하면 이유는 모르겠지만 두 번 실행됨
+        self.monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied && self.isConnectedNetwork == false {
+                DispatchQueue.main.async {
+                    showAlert(title: "네트워크 연결 성공", content: "네트워크가 다시 연결되었습니다.\n게임 결과가 정상적으로 기록되고 열람됩니다.", vc: self)
+                }
+                self.isConnectedNetwork = true
+            } else if path.status == .unsatisfied && self.isConnectedNetwork == true {
+                DispatchQueue.main.async {
+                    showAlert(title: "네트워크 연결 실패", content: "현재 네트워크에 연결되어 있지 않습니다.\n게임에는 지장이 없으나 게임 결과의 열람과 기록에 실패할 수 있으니 주의해 주세요.", vc: self)
+                }
+                self.isConnectedNetwork = false
+            }
+        }
     }
 }
