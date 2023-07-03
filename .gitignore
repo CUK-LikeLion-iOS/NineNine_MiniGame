@@ -90,3 +90,4 @@ fastlane/test_output
 iOSInjectionProject/
 .DS_Store
 NineNine/.DS_Store
+NineNine/NineNine/GoogleService-Info.plist

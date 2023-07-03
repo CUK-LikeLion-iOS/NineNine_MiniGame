@@ -37,7 +37,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="185.66666666666666"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Finish!" translatesAutoresizingMaskIntoConstraints="NO" id="FIH-by-S91">
-                                                                <rect key="frame" x="54.333333333333343" y="48.666666666666679" width="284.66666666666663" height="88.333333333333314"/>
+                                                                <rect key="frame" x="44" y="43" width="305" height="100"/>
                                                             </imageView>
                                                         </subviews>
                                                         <constraints>
@@ -224,34 +224,15 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gcl-mP-NpE" userLabel="Cats Image View">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="180.66666666666666"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ybG-cK-W6k" userLabel="Cats Image Stack View">
-                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="180.66666666666666"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TzS-Sy-Ab6" userLabel="Empty View">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="90.333333333333329"/>
-                                                                    </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t98-MI-lJ4" userLabel="Cats View">
-                                                                        <rect key="frame" x="0.0" y="90.333333333333314" width="393" height="90.333333333333314"/>
-                                                                        <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BBGameCats" translatesAutoresizingMaskIntoConstraints="NO" id="MPV-un-OmL">
-                                                                                <rect key="frame" x="70" y="0.0" width="253" height="90.333333333333329"/>
-                                                                            </imageView>
-                                                                        </subviews>
-                                                                        <constraints>
-                                                                            <constraint firstItem="MPV-un-OmL" firstAttribute="top" secondItem="t98-MI-lJ4" secondAttribute="top" id="7Sh-vt-ttI"/>
-                                                                            <constraint firstAttribute="bottom" secondItem="MPV-un-OmL" secondAttribute="bottom" id="WOR-lK-Ja2"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="MPV-un-OmL" secondAttribute="trailing" constant="70" id="X1P-Of-baK"/>
-                                                                            <constraint firstItem="MPV-un-OmL" firstAttribute="leading" secondItem="t98-MI-lJ4" secondAttribute="leading" constant="70" id="tBT-NW-Xx1"/>
-                                                                        </constraints>
-                                                                    </view>
-                                                                </subviews>
-                                                            </stackView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ShakeItGame_start_cat" translatesAutoresizingMaskIntoConstraints="NO" id="2tw-0M-ayP">
+                                                                <rect key="frame" x="77" y="0.0" width="239" height="180.66666666666666"/>
+                                                            </imageView>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="ybG-cK-W6k" secondAttribute="trailing" id="5ob-Ff-e2m"/>
-                                                            <constraint firstItem="ybG-cK-W6k" firstAttribute="top" secondItem="gcl-mP-NpE" secondAttribute="top" id="8xn-bI-bLv"/>
-                                                            <constraint firstAttribute="bottom" secondItem="ybG-cK-W6k" secondAttribute="bottom" id="NUq-et-jRe"/>
-                                                            <constraint firstItem="ybG-cK-W6k" firstAttribute="leading" secondItem="gcl-mP-NpE" secondAttribute="leading" id="cx1-XV-8UP"/>
+                                                            <constraint firstAttribute="bottom" secondItem="2tw-0M-ayP" secondAttribute="bottom" id="0mK-Ar-t6d"/>
+                                                            <constraint firstAttribute="trailing" secondItem="2tw-0M-ayP" secondAttribute="trailing" constant="77" id="4Q1-2W-Dbg"/>
+                                                            <constraint firstItem="2tw-0M-ayP" firstAttribute="leading" secondItem="gcl-mP-NpE" secondAttribute="leading" constant="77" id="DKO-Yk-Fhn"/>
+                                                            <constraint firstItem="2tw-0M-ayP" firstAttribute="top" secondItem="gcl-mP-NpE" secondAttribute="top" id="HYI-t6-k5w"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kYK-BJ-O7d" userLabel="Start Button View">
@@ -312,8 +293,8 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hO1-Fn-46d">
-                                <rect key="frame" x="16" y="89" width="43" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hO1-Fn-46d">
+                                <rect key="frame" x="16" y="89" width="50" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="뒤로">
                                     <fontDescription key="titleFontDescription" name="NanumGothicOTFExtraBold" family="NanumGothicOTF" pointSize="10"/>
@@ -341,7 +322,7 @@
                         <outlet property="gameDescription" destination="W8T-67-MAZ" id="mfV-zp-Bbn"/>
                         <outlet property="gameStartBtn" destination="MDA-Ob-ecI" id="zyP-aX-cih"/>
                         <outlet property="gameTitle" destination="AFW-26-Xvc" id="uhA-0e-0ps"/>
-                        <outlet property="titleImage" destination="MPV-un-OmL" id="WQd-zD-P1k"/>
+                        <outlet property="titleImage" destination="2tw-0M-ayP" id="NpD-PT-bk0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lXn-Zh-6MV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -352,8 +333,9 @@
     <resources>
         <image name="AppTitle" width="291" height="107.33333587646484"/>
         <image name="BBGameCats" width="75.666664123535156" height="49.333332061767578"/>
-        <image name="Finish!" width="284.66665649414062" height="88.333335876464844"/>
+        <image name="Finish!" width="305" height="100"/>
         <image name="GameStartBtn2" width="269" height="103"/>
+        <image name="ShakeItGame_start_cat" width="624" height="510"/>
         <image name="score_board" width="269" height="252"/>
     </resources>
 </document>
