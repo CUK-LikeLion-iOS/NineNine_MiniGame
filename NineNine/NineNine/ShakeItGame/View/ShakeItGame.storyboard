@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -149,6 +149,24 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" id="XiH-dR-Zwq" userLabel="Count Down View">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2FE-L2-lG8">
+                                        <rect key="frame" x="153.33333333333334" y="348" width="86.333333333333343" height="156.33333333333337"/>
+                                        <fontDescription key="fontDescription" name="NanumGothicOTFExtraBold" family="NanumGothicOTF" pointSize="142"/>
+                                        <color key="textColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="IaA-em-Seb"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59620757449999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="2FE-L2-lG8" firstAttribute="centerY" secondItem="XiH-dR-Zwq" secondAttribute="centerY" id="Z6S-2k-kzU"/>
+                                    <constraint firstItem="2FE-L2-lG8" firstAttribute="centerX" secondItem="XiH-dR-Zwq" secondAttribute="centerX" id="eaZ-x5-jYW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="z7S-tN-JJc"/>
                         <color key="backgroundColor" red="0.094117647060000004" green="0.1215686275" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -163,6 +181,13 @@
                             <constraint firstItem="z7S-tN-JJc" firstAttribute="bottom" secondItem="F2o-Jw-Xhp" secondAttribute="bottom" id="rHQ-Wq-aT8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="catImage" destination="F2o-Jw-Xhp" id="3Ox-WM-kkG"/>
+                        <outlet property="countdownView" destination="XiH-dR-Zwq" id="46M-dT-exf"/>
+                        <outlet property="messageLabel" destination="gXB-iA-UA6" id="ntv-i6-6Wq"/>
+                        <outlet property="scoreLabel" destination="FR4-sg-MoK" id="UeP-sU-4NY"/>
+                        <outlet property="scoreView" destination="64R-3l-k54" id="fKz-Yu-9dM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nde-I1-vE4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
