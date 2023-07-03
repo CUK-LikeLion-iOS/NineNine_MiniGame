@@ -23,9 +23,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_Cheese" translatesAutoresizingMaskIntoConstraints="NO" id="H71-yk-nWr">
-                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Main Cat" translatesAutoresizingMaskIntoConstraints="NO" id="dOB-se-pUJ">
                                 <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                             </imageView>
@@ -36,13 +33,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="303.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_AppTitle" translatesAutoresizingMaskIntoConstraints="NO" id="MzC-Km-XFQ">
-                                                <rect key="frame" x="55" y="0.0" width="304" height="107.5"/>
+                                                <rect key="frame" x="55" y="20" width="304" height="107.5"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="MzC-Km-XFQ" secondAttribute="trailing" constant="55" id="HbK-vP-3wn"/>
                                             <constraint firstItem="MzC-Km-XFQ" firstAttribute="leading" secondItem="sbN-9g-4zE" secondAttribute="leading" constant="55" id="Ngh-Vv-su7"/>
-                                            <constraint firstItem="MzC-Km-XFQ" firstAttribute="top" secondItem="sbN-9g-4zE" secondAttribute="top" id="hnB-7A-cfD"/>
+                                            <constraint firstItem="MzC-Km-XFQ" firstAttribute="top" secondItem="sbN-9g-4zE" secondAttribute="top" constant="20" id="hnB-7A-cfD"/>
                                             <constraint firstAttribute="width" secondItem="sbN-9g-4zE" secondAttribute="height" multiplier="15:11" id="isB-cu-YeR"/>
                                         </constraints>
                                     </view>
@@ -171,14 +168,10 @@
                             <constraint firstItem="CAq-bP-kfT" firstAttribute="top" secondItem="q6o-Yh-Stf" secondAttribute="top" id="AL8-fS-pSn"/>
                             <constraint firstItem="q6o-Yh-Stf" firstAttribute="bottom" secondItem="dOB-se-pUJ" secondAttribute="bottom" id="WPd-YR-6D8"/>
                             <constraint firstItem="q6o-Yh-Stf" firstAttribute="trailing" secondItem="CAq-bP-kfT" secondAttribute="trailing" id="eL3-e6-Zcd"/>
-                            <constraint firstItem="H71-yk-nWr" firstAttribute="leading" secondItem="q6o-Yh-Stf" secondAttribute="leading" id="fJ7-mQ-Znq"/>
-                            <constraint firstItem="q6o-Yh-Stf" firstAttribute="trailing" secondItem="H71-yk-nWr" secondAttribute="trailing" id="g3E-NN-uKU"/>
-                            <constraint firstItem="H71-yk-nWr" firstAttribute="top" secondItem="q6o-Yh-Stf" secondAttribute="top" id="kpq-6y-APL"/>
                             <constraint firstItem="CAq-bP-kfT" firstAttribute="leading" secondItem="Jqm-F0-iEv" secondAttribute="leading" id="kx0-tD-At3"/>
                             <constraint firstItem="q6o-Yh-Stf" firstAttribute="trailing" secondItem="dOB-se-pUJ" secondAttribute="trailing" id="la5-2M-SSH"/>
                             <constraint firstItem="dOB-se-pUJ" firstAttribute="top" secondItem="q6o-Yh-Stf" secondAttribute="top" id="qf6-qo-khk"/>
                             <constraint firstItem="q6o-Yh-Stf" firstAttribute="bottom" secondItem="CAq-bP-kfT" secondAttribute="bottom" id="qqm-qX-fHI"/>
-                            <constraint firstItem="q6o-Yh-Stf" firstAttribute="bottom" secondItem="H71-yk-nWr" secondAttribute="bottom" id="rVk-p5-P7q"/>
                             <constraint firstItem="dOB-se-pUJ" firstAttribute="leading" secondItem="q6o-Yh-Stf" secondAttribute="leading" id="twX-P3-yDV"/>
                         </constraints>
                     </view>
@@ -214,7 +207,6 @@
         <image name="Main Cat" width="393" height="761"/>
         <image name="icon_TapTap" width="150" height="150"/>
         <image name="main_AppTitle" width="291" height="107.5"/>
-        <image name="main_Cheese" width="393" height="852"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
