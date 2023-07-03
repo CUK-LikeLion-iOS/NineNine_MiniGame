@@ -18,7 +18,7 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate {
     weak var audioDelegate: AudioPlayerDelegate?
     weak var selecetedGameDelegate: SelectedGameDelegate?
     var player: AVAudioPlayer? = makeAudioPlayer(audioResource: "Game")
-    let gameStartingData = GameStartingData()
+    let gameStartingData = GameData()
     var gameStartBtnImages: [UIImage] {
         get {
             return gameStartingData.gameStartBtnImageArray()

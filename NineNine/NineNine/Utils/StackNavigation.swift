@@ -30,11 +30,12 @@ func moveToStartingVC(mainVC: UIViewController) {
 func moveToGameResultVC(gameVC: UIViewController) {
     let storyboard = UIStoryboard(name: "ReadyandFinish", bundle: nil)
 
-    guard let nextVC = storyboard.instantiateViewController(withIdentifier: "GameResultViewController") as? GameResultViewController else {
-        return
-    }
+    guard let nextVC = storyboard.instantiateViewController(withIdentifier: "GameResultViewController") as? GameResultViewController else { return }
+    guard let homeVC = gameVC.navigationController?.viewControllers.first as? HomeViewController else {
+        return }
     
-    nextVC.delegate = gameVC as? GameDelegate
+    nextVC.gameDelegate = gameVC as? GameDelegate
+    nextVC.selectedGameDelegate = homeVC as SelectedGameDelegate
     
     gameVC.navigationController?.pushViewController(nextVC, animated: true)
 }

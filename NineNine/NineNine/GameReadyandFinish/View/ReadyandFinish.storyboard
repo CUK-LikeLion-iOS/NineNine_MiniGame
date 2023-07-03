@@ -293,8 +293,8 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hO1-Fn-46d">
-                                <rect key="frame" x="16" y="89" width="43" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hO1-Fn-46d">
+                                <rect key="frame" x="16" y="89" width="50" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="뒤로">
                                     <fontDescription key="titleFontDescription" name="NanumGothicOTFExtraBold" family="NanumGothicOTF" pointSize="10"/>
