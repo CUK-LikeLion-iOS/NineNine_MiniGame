@@ -39,6 +39,7 @@
 		CCEDDA0C2A4F0945008084C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCEDDA0B2A4F0945008084C5 /* GoogleService-Info.plist */; };
 		CCEDDA0F2A4F41AD008084C5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CCEDDA0E2A4F41AD008084C5 /* FirebaseFirestore */; };
 		CCEDDA112A4F41AD008084C5 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CCEDDA102A4F41AD008084C5 /* FirebaseFirestoreSwift */; };
+		CCEDDA132A52BFFE008084C5 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEDDA122A52BFFE008084C5 /* ShowAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		CCEC338E2A46C1F2006D2109 /* GameResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewController.swift; sourceTree = "<group>"; };
 		CCEC33902A46C7C7006D2109 /* GameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDelegate.swift; sourceTree = "<group>"; };
 		CCEDDA0B2A4F0945008084C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CCEDDA122A52BFFE008084C5 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				CCD55F1E2A44AF4900AD3206 /* StackNavigation.swift */,
 				CC737CAD2A4628EB00841C99 /* AudioPlayer.swift */,
 				CCCAFAF82A49BFC400D79EDD /* GameTimer.swift */,
+				CCEDDA122A52BFFE008084C5 /* ShowAlert.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				CCD55F1F2A44AF4900AD3206 /* StackNavigation.swift in Sources */,
 				CC0C83512A1B293D00DB6534 /* ImageResize.swift in Sources */,
 				CC637CCC2A4A0BF80003DA93 /* BBGameData.swift in Sources */,
+				CCEDDA132A52BFFE008084C5 /* ShowAlert.swift in Sources */,
 				CC5D8DE52A1928AA0089A850 /* HomeViewController.swift in Sources */,
 				CC637CC22A4A064F0003DA93 /* HomeData.swift in Sources */,
 				CC5D8DF92A1929C40089A850 /* HexColor.swift in Sources */,
