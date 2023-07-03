@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ADABF6EE2A51449000F8745D /* ShakeItModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABF6ED2A51449000F8745D /* ShakeItModel.swift */; };
 		CC0362CA2A4A169F00A308C1 /* SelectedGameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0362C92A4A169F00A308C1 /* SelectedGameDelegate.swift */; };
 		CC0362CD2A4A1BDA00A308C1 /* GameStartingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0362CC2A4A1BDA00A308C1 /* GameStartingData.swift */; };
 		CC0362CF2A4A2AF800A308C1 /* ShakeItGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC0362CE2A4A2AF800A308C1 /* ShakeItGame.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ADABF6ED2A51449000F8745D /* ShakeItModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShakeItModel.swift; path = NineNine/ShakeItGame/Model/ShakeItModel.swift; sourceTree = SOURCE_ROOT; };
 		CC0362C92A4A169F00A308C1 /* SelectedGameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedGameDelegate.swift; sourceTree = "<group>"; };
 		CC0362CC2A4A1BDA00A308C1 /* GameStartingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStartingData.swift; sourceTree = "<group>"; };
 		CC0362CE2A4A2AF800A308C1 /* ShakeItGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShakeItGame.storyboard; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 		CC637CD02A4A0C690003DA93 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ADABF6ED2A51449000F8745D /* ShakeItModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCD55F1D2A44AD5600AD3206 /* CustomizeView.swift in Sources */,
+				ADABF6EE2A51449000F8745D /* ShakeItModel.swift in Sources */,
 				CCD55F1F2A44AF4900AD3206 /* StackNavigation.swift in Sources */,
 				CC0C83512A1B293D00DB6534 /* ImageResize.swift in Sources */,
 				CC637CCC2A4A0BF80003DA93 /* BBGameData.swift in Sources */,

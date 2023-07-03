@@ -8,16 +8,18 @@
 import UIKit
 import CoreMotion
 
-class ShakeItGameViewController: UIViewController {
-    // 아울렛
-    @IBOutlet weak var scoreLabel: UILabel!
+class ShakeItGameViewController: UIViewController, GameDelegate {
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var catImage: UIImageView!
+    @IBOutlet weak var scoreView: UIView!
+    @IBOutlet weak var countdownView: UIView!
     
-    var playerNumber = 0    // 총 인원수
-    var playerCounter = 1   // 현재 플레이어 번호
+    let shakeitResources = ShakeItGameData()
+    
     var timer: DispatchSourceTimer?
-    var remainingTime: TimeInterval = 10.0
-    var score: UInt16 = 0 {
+    var remainingTime: TimeInterval = 13.0
+    var score: Int = 0 {
         didSet {    // 점수와 레이블의 텍스트를 동기화
             scoreLabel.text = String(score)
             if (score < 10) {
@@ -33,17 +35,10 @@ class ShakeItGameViewController: UIViewController {
                 scoreLabel.textColor = .systemPink
             }
         }
-        willSet {   // 처음 흔들면 타이머 시작
-            if (newValue == 1) {
-                startTimer()
-                messageLabel.text = "빠르게 흔드세요!"
-            }
-        }
     }
     
     // 기울기 관련 프로퍼티
     var motionManager: CMMotionManager!
-    var tiltTimer: Timer!
     
     var previousPitch: Double = 0
     var previousRoll: Double = 0
@@ -54,13 +49,15 @@ class ShakeItGameViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        motionManager = CMMotionManager()
-        self.tiltTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkTilt), userInfo: nil, repeats: true)
+        makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
+        countDownBeforeGame(countDownView: countdownView)
         
+        timeTravel()
+        startGameAfter3seconds()
     }
     
     // 매 0.1초마다 기울임 검사
-    @objc func checkTilt() {
+    func checkTilt() {
         guard motionManager.isDeviceMotionAvailable else { return }
         motionManager?.deviceMotionUpdateInterval = 0.1
         
@@ -85,40 +82,22 @@ class ShakeItGameViewController: UIViewController {
         }
     }
     
-    func startTimer() {
-        timer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
-        timer?.schedule(deadline: .now(), repeating: .milliseconds(100))
-        
-        timer?.setEventHandler { [weak self] in
-            guard let self = self else { return }
-            self.remainingTime -= 0.1
-            DispatchQueue.main.async {
-                self.updateTimeBar()
-                if self.remainingTime <= 0 {
-                    self.timer?.cancel()
-                    self.timerExpired()
-                }
-            }
-        }
-        timer?.resume()
-    }
-    
-    func timerExpired() {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: "알림", message: "플레이어의 점수는 \(self.score) 점입니다.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
-                self.score = 0
-                self.remainingTime = 10.0
-                self.updateTimeBar()
-                // self.startTimer()
-            })
-            self.present(alert, animated: true, completion: nil)
+    func timeTravel() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 13.0) {
+            self.motionManager.stopDeviceMotionUpdates()
+            moveToGameResultVC(gameVC: self)
         }
     }
     
-    func updateTimeBar() {
-        let progress = Float(remainingTime / 10.0)
-        //timeBar.setProgress(progress, animated: true)
+    func startGameAfter3seconds() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.motionManager = CMMotionManager()
+            self.checkTilt()
+            self.catImage.image = self.shakeitResources.shakingCat()
+        }
     }
 
+    func showGameResult() -> Int {
+        return score
+    }
 }
