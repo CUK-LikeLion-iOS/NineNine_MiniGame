@@ -44,6 +44,7 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate {
         detectNetworkConnected()
     }
     override func viewWillAppear(_ animated: Bool) {
+        stopDetectNetwork()
         gameStartBtn.image = gameStartBtnImages[0]
         audioDelegate?.playAudioPlayer()
     }
@@ -107,5 +108,9 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate {
                 self.isConnectedNetwork = false
             }
         }
+    }
+    
+    func stopDetectNetwork() {
+        self.monitor.cancel()
     }
 }
