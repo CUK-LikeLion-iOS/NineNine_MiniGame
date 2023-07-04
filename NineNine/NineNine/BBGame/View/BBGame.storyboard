@@ -54,7 +54,10 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="zbX-0W-TGb">
-                                                                                        <rect key="frame" x="70" y="30" width="253" height="4"/>
+                                                                                        <rect key="frame" x="70" y="30" width="253" height="25"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="25" id="Leu-fI-8SP"/>
+                                                                                        </constraints>
                                                                                         <color key="progressTintColor" systemColor="systemYellowColor"/>
                                                                                         <color key="trackTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     </progressView>

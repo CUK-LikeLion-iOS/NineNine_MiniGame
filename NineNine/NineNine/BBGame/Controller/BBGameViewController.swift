@@ -55,7 +55,6 @@ class BBGameViewController: UIViewController, GameDelegate {
     }
     
     func countDownGame() {
-        timeBar.transform = CGAffineTransformScale(timeBar.transform, 1, 7)
         gameTimer = GameTimer(controller: self, timeBar: timeBar, timeLabel: timeLabel)
         gameTimer?.startTimer()
     }
