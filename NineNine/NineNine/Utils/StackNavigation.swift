@@ -21,7 +21,7 @@ func moveToStartingVC(mainVC: UIViewController) {
         return
     }
     
-    nextVC.selecetedGameDelegate = mainVC as? SelectedGameDelegate
+    nextVC.selectedGameDelegate = mainVC as? SelectedGameDelegate
     nextVC.audioDelegate = mainVC as? AudioPlayerDelegate
     
     mainVC.navigationController?.pushViewController(nextVC, animated: true)
@@ -40,6 +40,17 @@ func moveToGameResultVC(gameVC: UIViewController) {
     gameVC.navigationController?.pushViewController(nextVC, animated: true)
 }
 
+func moveToGameRecordVC(startingVC: UIViewController) {
+    let storyboard = UIStoryboard(name: "ReadyandFinish", bundle: nil)
+    guard let gameRecordVC = storyboard.instantiateViewController(withIdentifier: "GameRecordViewController") as? GameRecordViewController else {
+        return
+    }
+
+    gameRecordVC.gameRecordDelegate = startingVC as? GameRecordDelegate
+    
+    startingVC.navigationController?.pushViewController(gameRecordVC, animated: true)
+}
+
 func moveBackToHomeVC(vc: UIViewController) {
     vc.navigationController?.popToRootViewController(animated: true)
 }
@@ -50,3 +61,4 @@ func moveBackToStartingVC(vc: UIViewController) {
     }
     vc.navigationController?.popToViewController(startingVC, animated: true)
 }
+

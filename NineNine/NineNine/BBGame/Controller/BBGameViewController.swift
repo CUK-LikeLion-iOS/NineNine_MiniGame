@@ -14,13 +14,14 @@ class BBGameViewController: UIViewController, GameDelegate {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var scoreView: UIView!
     @IBOutlet weak var countDownView: UIView!
-
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timeBar: UIProgressView!
+    
     var score: Int = 0
     let gameResource: BBGameData = BBGameData()
+    var gameTimer: GameTimer?
     var swipingCatImageList: [UIImage] {
-        get {
             return gameResource.swipingCatImageArray()
-        }
     }
     var fishThumbImage: UIImage {
         return gameResource.fishThumbImage()
@@ -35,7 +36,7 @@ class BBGameViewController: UIViewController, GameDelegate {
         
         makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
         countDownBeforeGame(countDownView: countDownView)
-        timeTravel()
+        countDownGame()
     }
     
     @IBAction func sliderAction(_ sender: UISlider) {
@@ -53,9 +54,8 @@ class BBGameViewController: UIViewController, GameDelegate {
         return score
     }
     
-    func timeTravel() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 13.0) {
-            moveToGameResultVC(gameVC: self)
-        }
+    func countDownGame() {
+        gameTimer = GameTimer(controller: self, timeBar: timeBar, timeLabel: timeLabel)
+        gameTimer?.startTimer()
     }
 }

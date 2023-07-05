@@ -10,7 +10,8 @@ import UIKit
 class GameResultViewController: UIViewController {
 
     @IBOutlet weak var score: UILabel!
-    
+    @IBOutlet weak var loadingView: UIView!
+
     weak var gameDelegate: GameDelegate?
     weak var selectedGameDelegate: SelectedGameDelegate?
     let db = FireStore()
@@ -29,15 +30,19 @@ class GameResultViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        loadingView.isHidden = true
         score.text = "\(gameScore)"
-        timeTravel()
     }
-
-    func timeTravel() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+    
+    
+    @IBAction func moveBackToStartBtnPressed(_ sender: UIButton) {
+        // 타임 아웃 구현해보기 목표,,,,
+        Task {
+            loadingView.isHidden = false
+            await self.db.recordScore(score: self.gameScore, gameName: "\(self.selectedGameTitle)")
+            loadingView.isHidden = true
             moveBackToStartingVC(vc: self)
-            self.db.recordScore(score: self.gameScore, gameName: "\(self.selectedGameTitle)")
         }
     }
 }
