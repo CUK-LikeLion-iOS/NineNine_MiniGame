@@ -10,3 +10,9 @@ import UIKit
 protocol GameDelegate: AnyObject {
     func showGameResult() -> Int
 }
+
+
+protocol GameRecordDelegate: AnyObject {
+    func gameRecord() -> [[String: Any]]
+    func gameHighScore() -> Int
+}
