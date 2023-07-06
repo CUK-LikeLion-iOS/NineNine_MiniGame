@@ -11,6 +11,7 @@ class GameResultViewController: UIViewController {
 
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var gameImageView: UIImageView!
 
     weak var gameDelegate: GameDelegate?
     weak var selectedGameDelegate: SelectedGameDelegate?
@@ -33,8 +34,17 @@ class GameResultViewController: UIViewController {
         
         loadingView.isHidden = true
         score.text = "\(gameScore)"
+        renderSelectedGameImage()
     }
     
+    func renderSelectedGameImage() {
+        guard let gameNumber = selectedGameDelegate?.selectedGameNumber() else {
+            return
+        }
+        let gameResource = gameData.gameResource()
+        
+        gameImageView.image = gameResource[gameNumber].2
+    }
     
     @IBAction func moveBackToStartBtnPressed(_ sender: UIButton) {
         // 타임 아웃 구현해보기 목표,,,,
