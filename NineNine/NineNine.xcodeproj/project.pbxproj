@@ -35,7 +35,7 @@
 		CCCAFAF92A49BFC400D79EDD /* GameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCAFAF82A49BFC400D79EDD /* GameTimer.swift */; };
 		CCD55F1D2A44AD5600AD3206 /* CustomizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD55F1C2A44AD5600AD3206 /* CustomizeView.swift */; };
 		CCD55F1F2A44AF4900AD3206 /* StackNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD55F1E2A44AF4900AD3206 /* StackNavigation.swift */; };
-		CCDDFB0C2A5485AB003BDAC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCDDFB0B2A5485AB003BDAC6 /* GoogleService-Info.plist */; };
+		CCDD056C2A56A537007C54B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCDD056B2A56A537007C54B1 /* GoogleService-Info.plist */; };
 		CCDDFB0E2A554366003BDAC6 /* GameRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDDFB0D2A554366003BDAC6 /* GameRecordViewController.swift */; };
 		CCDDFB102A55455D003BDAC6 /* GameRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDDFB0F2A55455D003BDAC6 /* GameRecordTableViewCell.swift */; };
 		CCEC338F2A46C1F2006D2109 /* GameResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC338E2A46C1F2006D2109 /* GameResultViewController.swift */; };
@@ -80,7 +80,7 @@
 		CCCAFAF82A49BFC400D79EDD /* GameTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTimer.swift; sourceTree = "<group>"; };
 		CCD55F1C2A44AD5600AD3206 /* CustomizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeView.swift; sourceTree = "<group>"; };
 		CCD55F1E2A44AF4900AD3206 /* StackNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackNavigation.swift; sourceTree = "<group>"; };
-		CCDDFB0B2A5485AB003BDAC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CCDD056B2A56A537007C54B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CCDDFB0D2A554366003BDAC6 /* GameRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRecordViewController.swift; sourceTree = "<group>"; };
 		CCDDFB0F2A55455D003BDAC6 /* GameRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRecordTableViewCell.swift; sourceTree = "<group>"; };
 		CCEC338E2A46C1F2006D2109 /* GameResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewController.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 				CC5D8DE92A1928AB0089A850 /* Assets.xcassets */,
 				CC5D8DEB2A1928AB0089A850 /* LaunchScreen.storyboard */,
 				CC5D8DEE2A1928AB0089A850 /* Info.plist */,
-				CCDDFB0B2A5485AB003BDAC6 /* GoogleService-Info.plist */,
+				CCDD056B2A56A537007C54B1 /* GoogleService-Info.plist */,
 			);
 			path = NineNine;
 			sourceTree = "<group>";
@@ -494,7 +494,7 @@
 				CC5D8DEA2A1928AB0089A850 /* Assets.xcassets in Resources */,
 				CC5D8DE82A1928AA0089A850 /* Home.storyboard in Resources */,
 				CC737CA52A460C5500841C99 /* Main.m4a in Resources */,
-				CCDDFB0C2A5485AB003BDAC6 /* GoogleService-Info.plist in Resources */,
+				CCDD056C2A56A537007C54B1 /* GoogleService-Info.plist in Resources */,
 				CC737CA92A46127100841C99 /* Game.m4a in Resources */,
 				FF6B4E052A50675000E3EB36 /* PlusGame.storyboard in Resources */,
 				CC4E09E62A1931DC00B7ED08 /* NanumGothicExtraBold.otf in Resources */,
@@ -692,13 +692,14 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.likelioncuk.www.NineNine;
+				PRODUCT_BUNDLE_IDENTIFIER = com.likelion.www.NineNine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -726,13 +727,14 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.likelioncuk.www.NineNine;
+				PRODUCT_BUNDLE_IDENTIFIER = com.likelion.www.NineNine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

@@ -17,7 +17,6 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecor
     @IBOutlet weak var gameStartBtn: UIImageView!
     @IBOutlet weak var loadingView: UIView!
     
-    
     weak var audioDelegate: AudioPlayerDelegate?
     weak var selectedGameDelegate: SelectedGameDelegate?
     var player: AVAudioPlayer? = makeAudioPlayer(audioResource: "Game")
@@ -43,7 +42,6 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecor
             return gameStartingData.gameTitleList()[selectedGameNumber]
         }
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +59,7 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecor
         guard let gameNumber = selectedGameDelegate?.selectedGameNumber() else {
             return
         }
-        let gameStartingResource = gameStartingData.gameStartingResource()
+        let gameStartingResource = gameStartingData.gameResource()
         
         gameTitle.text = gameStartingResource[gameNumber].0
         gameDescription.text = gameStartingResource[gameNumber].1
