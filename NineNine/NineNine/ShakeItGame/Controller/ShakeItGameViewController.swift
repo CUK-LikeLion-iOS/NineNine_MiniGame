@@ -14,11 +14,22 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
     @IBOutlet weak var catImage: UIImageView!
     @IBOutlet weak var scoreView: UIView!
     @IBOutlet weak var countdownView: UIView!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timeBar: UIProgressView!
     
+    var gameTimer: GameTimer?
     let shakeitResources = ShakeItGameData()
+    var readyCatImage: UIImage {
+        get {
+            return shakeitResources.readyCatImage()
+        }
+    }
+    var shakingCatImage: UIImage {
+        get {
+            return shakeitResources.shakingCatImage()
+        }
+    }
     
-    var timer: DispatchSourceTimer?
-    var remainingTime: TimeInterval = 13.0
     var score: Int = 0 {
         didSet {    // 점수와 레이블의 텍스트를 동기화
             scoreLabel.text = String(score)
@@ -44,6 +55,8 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
     var previousRoll: Double = 0
     let TILTING_THRESHOLD: Double = 0.3
     
+    // 진동(햅틱) 프로퍼티
+    let shakingHaptic = UIImpactFeedbackGenerator(style: .medium)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +65,8 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
         makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
         countDownBeforeGame(countDownView: countdownView)
         
-        timeTravel()
+        gameTimer = GameTimer(controller: self, timeBar: timeBar, timeLabel: timeLabel)
+        gameTimer?.startTimer()
         startGameAfter3seconds()
     }
     
@@ -65,19 +79,19 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
             guard let self = self else { return }
             guard let motion = motion else { return }
             
-            //let pitch = motion.attitude.pitch // 앞, 뒤
             let roll = motion.attitude.roll // 좌, 우
-            
-            //let pitchChange = pitch - self.previousPitch
             let rollChange = roll - self.previousRoll
             
             // 이전과 비교해 임계치 이상 기울기가 바뀌면 점수 추가
             if (abs(rollChange) > TILTING_THRESHOLD) {
                 self.score += 1
+                self.catImage.image = self.shakingCatImage
+                shakingHaptic.impactOccurred()
             }
-            print("rollChange: \(rollChange)")
+            else {
+                self.catImage.image = self.readyCatImage
+            }
             
-            //self.previousPitch = pitch
             self.previousRoll = roll
         }
     }
@@ -93,7 +107,6 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.motionManager = CMMotionManager()
             self.checkTilt()
-            self.catImage.image = self.shakeitResources.shakingCat()
         }
     }
 
