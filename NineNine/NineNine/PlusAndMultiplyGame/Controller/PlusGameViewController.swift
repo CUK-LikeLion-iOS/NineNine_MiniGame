@@ -1,13 +1,13 @@
 //
-//  MultiplyGameViewController.swift
+//  PlusGameViewController.swift
 //  NineNine
 //
-//  Created by 김정원 on 2023/06/29.
+//  Created by 김정원 on 2023/07/01.
 //
 
 import UIKit
 
-class MultiplyGameViewController: UIViewController, GameDelegate {
+class PlusGameViewController: UIViewController, GameDelegate {
     
     private var gameTimer : GameTimer?
     private var repeatCount : Int = 0
@@ -15,7 +15,10 @@ class MultiplyGameViewController: UIViewController, GameDelegate {
     private var inputCount :Int = 0
     private var resultNum : Int?
     private var score : Int = 0
+    let multiplyResources = PlusGameData()
+
         
+    @IBOutlet private weak var quizImage: UIImageView!
     @IBOutlet private weak var quizView: UIStackView!
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var countDownView: UIView!
@@ -85,7 +88,7 @@ class MultiplyGameViewController: UIViewController, GameDelegate {
     
     private func calculate(operand1 : Int , operand2 : Int)
     {
-        self.resultNum = operand1 * operand2
+        self.resultNum = operand1 + operand2
         self.repeatCount = (resultNum! >= 10) ? 2 : 1
     }
     
