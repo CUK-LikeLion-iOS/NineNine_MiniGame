@@ -1,13 +1,13 @@
 //
-//  PlusGameViewController.swift
+//  MultiplyGameViewController.swift
 //  NineNine
 //
-//  Created by 김정원 on 2023/07/01.
+//  Created by 김정원 on 2023/06/29.
 //
 
 import UIKit
 
-class PlusGameViewController: UIViewController, GameDelegate {
+class MultiplyGameViewController: UIViewController, GameDelegate {
     
     private var gameTimer : GameTimer?
     private var repeatCount : Int = 0
@@ -15,7 +15,8 @@ class PlusGameViewController: UIViewController, GameDelegate {
     private var inputCount :Int = 0
     private var resultNum : Int?
     private var score : Int = 0
-        
+    let multiplyResources = MultiplyGameData()
+    
     @IBOutlet private weak var quizView: UIStackView!
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var countDownView: UIView!
@@ -26,6 +27,7 @@ class PlusGameViewController: UIViewController, GameDelegate {
     @IBOutlet private weak var operand2Label: UILabel!
     @IBOutlet private weak var operand1Label: UILabel!
     @IBOutlet private weak var userInputLabel: UILabel!
+    @IBOutlet private weak var quizImage: UIImageView!
     
     // 버튼이 눌렸을 때 기능
     @IBAction private func operandButtonTapped(_ sender: UIButton)
@@ -63,6 +65,8 @@ class PlusGameViewController: UIViewController, GameDelegate {
         makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
         userInputLabel.layer.masksToBounds = true
         userInputLabel.layer.cornerRadius = 20
+        homeImage.image = self.multiplyResources.catImage()
+        quizImage.image = self.multiplyResources.answerImage()
         self.quizView.isHidden = true
         
         // 게임 타이머
@@ -85,7 +89,7 @@ class PlusGameViewController: UIViewController, GameDelegate {
     
     private func calculate(operand1 : Int , operand2 : Int)
     {
-        self.resultNum = operand1 + operand2
+        self.resultNum = operand1 * operand2
         self.repeatCount = (resultNum! >= 10) ? 2 : 1
     }
     
