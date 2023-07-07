@@ -10,7 +10,9 @@ import UIKit
 class GameResultViewController: UIViewController {
 
     @IBOutlet weak var score: UILabel!
-    
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var gameImageView: UIImageView!
+
     weak var gameDelegate: GameDelegate?
     weak var selectedGameDelegate: SelectedGameDelegate?
     let db = FireStore()
@@ -29,15 +31,28 @@ class GameResultViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        loadingView.isHidden = true
         score.text = "\(gameScore)"
-        timeTravel()
+        renderSelectedGameImage()
     }
-
-    func timeTravel() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+    
+    func renderSelectedGameImage() {
+        guard let gameNumber = selectedGameDelegate?.selectedGameNumber() else {
+            return
+        }
+        let gameResource = gameData.gameResource()
+        
+        gameImageView.image = gameResource[gameNumber].2
+    }
+    
+    @IBAction func moveBackToStartBtnPressed(_ sender: UIButton) {
+        // 타임 아웃 구현해보기 목표,,,,
+        Task {
+            loadingView.isHidden = false
+            await self.db.recordScore(score: self.gameScore, gameName: "\(self.selectedGameTitle)")
+            loadingView.isHidden = true
             moveBackToStartingVC(vc: self)
-            self.db.recordScore(score: self.gameScore, gameName: "\(self.selectedGameTitle)")
         }
     }
 }
