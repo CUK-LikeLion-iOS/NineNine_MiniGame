@@ -9,19 +9,23 @@ import UIKit
 import AVFoundation
 import Network
 
-class StartingViewController: UIViewController, AVAudioPlayerDelegate {
+class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecordDelegate {
 
     @IBOutlet weak var titleImage: UIImageView!
     @IBOutlet weak var gameDescription: UILabel!
     @IBOutlet weak var gameTitle: UILabel!
     @IBOutlet weak var gameStartBtn: UIImageView!
-
+    @IBOutlet weak var loadingView: UIView!
+    
     weak var audioDelegate: AudioPlayerDelegate?
-    weak var selecetedGameDelegate: SelectedGameDelegate?
+    weak var selectedGameDelegate: SelectedGameDelegate?
     var player: AVAudioPlayer? = makeAudioPlayer(audioResource: "Game")
     let gameStartingData = GameData()
+    let db = FireStore()
     var isConnectedNetwork = true
     let monitor = NWPathMonitor()
+    var gamePlayTimeAndScore: [[String: Any]] = []
+    var highScore: Int = -1
     var gameStartBtnImages: [UIImage] {
         get {
             return gameStartingData.gameStartBtnImageArray()
@@ -32,27 +36,30 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate {
             return gameStartingData.gameStoryBoardAndViewControllers()
         }
     }
-
+    var selectedGameTitle: String {
+        get {
+            let selectedGameNumber = selectedGameDelegate?.selectedGameNumber() ?? 0
+            return gameStartingData.gameTitleList()[selectedGameNumber]
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadingView.isHidden = true
         renderSelectedGameResource()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        // https://velog.io/@ellyheetov/errorhandling01 <- 알림창을 DidAppear에 띄어야하는 이유
         detectNetworkConnected()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         gameStartBtn.image = gameStartBtnImages[0]
         audioDelegate?.playAudioPlayer()
     }
     
     func renderSelectedGameResource() {
-        guard let gameNumber = selecetedGameDelegate?.selectedGameNumber() else {
+        guard let gameNumber = selectedGameDelegate?.selectedGameNumber() else {
             return
         }
-        let gameStartingResource = gameStartingData.gameStartingResource()
+        let gameStartingResource = gameStartingData.gameResource()
         
         gameTitle.text = gameStartingResource[gameNumber].0
         gameDescription.text = gameStartingResource[gameNumber].1
@@ -68,9 +75,20 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate {
     @IBAction func moveBack(_ sender: UIButton) {
         moveBackToHomeVC(vc: self)
     }
-
+    
+    @IBAction func showGameRecord(_ sender: UIButton) {
+        self.loadingView.isHidden = false
+        // 비동기 처리
+        Task {
+            self.gamePlayTimeAndScore = await db.loadGameRecord(gameName: selectedGameTitle)
+            self.highScore = await db.loadHighScore(gameName: selectedGameTitle)
+            self.loadingView.isHidden = true
+            moveToGameRecordVC(startingVC: self)
+        }
+    }
+    
     @IBAction func moveGameView(_ sender: UIButton) {
-        guard let gameNumber = selecetedGameDelegate?.selectedGameNumber() else {
+        guard let gameNumber = selectedGameDelegate?.selectedGameNumber() else {
             return
         }
         moveToGameVC(startingVC: self, gameSBandVC: gameSBandVCs[gameNumber])
@@ -92,7 +110,6 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate {
     /* ------------------------- 네트워크 관련 메서드 ---------------------------- */
     
     func detectNetworkConnected() {
-        self.monitor.start(queue: DispatchQueue.global())
         // self.isConnectedNetwork로 조건문 검사를 하는 이유 -> 빼고 검사하면 이유는 모르겠지만 두 번 실행됨
         self.monitor.pathUpdateHandler = { path in
             if path.status == .satisfied && self.isConnectedNetwork == false {
@@ -107,5 +124,21 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate {
                 self.isConnectedNetwork = false
             }
         }
+        
+        self.monitor.start(queue: DispatchQueue.global())
+    }
+    
+    func stopDetectNetwork() {
+        self.monitor.cancel()
+    }
+    
+    /* ------------------------- Game Record Delegate 필수 구현 메서드 ---------------------------- */
+    
+    func gameRecord() -> [[String : Any]] {
+        return gamePlayTimeAndScore
+    }
+    
+    func gameHighScore() -> Int {
+        return highScore
     }
 }

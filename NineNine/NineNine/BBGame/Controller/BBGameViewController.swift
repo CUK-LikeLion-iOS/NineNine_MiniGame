@@ -14,28 +14,44 @@ class BBGameViewController: UIViewController, GameDelegate {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var scoreView: UIView!
     @IBOutlet weak var countDownView: UIView!
-
-    var score: Int = 0
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timeBar: UIProgressView!
+    
     let gameResource: BBGameData = BBGameData()
+    var gameTimer: GameTimer?
     var swipingCatImageList: [UIImage] {
-        get {
             return gameResource.swipingCatImageArray()
-        }
     }
     var fishThumbImage: UIImage {
         return gameResource.fishThumbImage()
+    }
+    var score: Int = 0 {
+        didSet {    // 점수와 레이블의 텍스트를 동기화
+            scoreLabel.text = String(score)
+            if (score < 40) {
+                scoreLabel.textColor = .systemBlue
+            }
+            else if (score < 70) {
+                scoreLabel.textColor = .systemCyan
+            }
+            else if (score < 100) {
+                scoreLabel.textColor = .systemGreen
+            }
+            else {
+                scoreLabel.textColor = .systemPink
+            }
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        scoreLabel.text = "\(score)"
         slider.setThumbImage(fishThumbImage, for: .normal) // 슬라이더의 thumb가 터치되지 않았을 때
         slider.setThumbImage(fishThumbImage, for: .highlighted) // thumb가 터치되었을 때
         
         makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
         countDownBeforeGame(countDownView: countDownView)
-        timeTravel()
+        countDownGame()
     }
     
     @IBAction func sliderAction(_ sender: UISlider) {
@@ -53,9 +69,8 @@ class BBGameViewController: UIViewController, GameDelegate {
         return score
     }
     
-    func timeTravel() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 13.0) {
-            moveToGameResultVC(gameVC: self)
-        }
+    func countDownGame() {
+        gameTimer = GameTimer(controller: self, timeBar: timeBar, timeLabel: timeLabel)
+        gameTimer?.startTimer()
     }
 }

@@ -35,12 +35,16 @@
 		CCCAFAF92A49BFC400D79EDD /* GameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCAFAF82A49BFC400D79EDD /* GameTimer.swift */; };
 		CCD55F1D2A44AD5600AD3206 /* CustomizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD55F1C2A44AD5600AD3206 /* CustomizeView.swift */; };
 		CCD55F1F2A44AF4900AD3206 /* StackNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD55F1E2A44AF4900AD3206 /* StackNavigation.swift */; };
+		CCDD056C2A56A537007C54B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCDD056B2A56A537007C54B1 /* GoogleService-Info.plist */; };
+		CCDDFB0E2A554366003BDAC6 /* GameRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDDFB0D2A554366003BDAC6 /* GameRecordViewController.swift */; };
+		CCDDFB102A55455D003BDAC6 /* GameRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDDFB0F2A55455D003BDAC6 /* GameRecordTableViewCell.swift */; };
 		CCEC338F2A46C1F2006D2109 /* GameResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC338E2A46C1F2006D2109 /* GameResultViewController.swift */; };
 		CCEC33912A46C7C7006D2109 /* GameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC33902A46C7C7006D2109 /* GameDelegate.swift */; };
 		CCEDDA0F2A4F41AD008084C5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CCEDDA0E2A4F41AD008084C5 /* FirebaseFirestore */; };
 		CCEDDA112A4F41AD008084C5 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CCEDDA102A4F41AD008084C5 /* FirebaseFirestoreSwift */; };
 		CCEDDA132A52BFFE008084C5 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEDDA122A52BFFE008084C5 /* ShowAlert.swift */; };
 		FF20B2B82A57E4420031535C /* MultiplyAndPlusGameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20B2B72A57E4420031535C /* MultiplyAndPlusGameData.swift */; };
+
 		FF6B4E052A50675000E3EB36 /* PlusGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF6B4E042A50675000E3EB36 /* PlusGame.storyboard */; };
 		FF6B4E072A50676600E3EB36 /* PlusGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6B4E062A50676600E3EB36 /* PlusGameViewController.swift */; };
 		FF910BD92A4D525800B231E9 /* MultiplyGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF910BD82A4D525800B231E9 /* MultiplyGame.storyboard */; };
@@ -79,15 +83,21 @@
 		CCCAFAF82A49BFC400D79EDD /* GameTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTimer.swift; sourceTree = "<group>"; };
 		CCD55F1C2A44AD5600AD3206 /* CustomizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeView.swift; sourceTree = "<group>"; };
 		CCD55F1E2A44AF4900AD3206 /* StackNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackNavigation.swift; sourceTree = "<group>"; };
+		CCDD056B2A56A537007C54B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CCDDFB0D2A554366003BDAC6 /* GameRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRecordViewController.swift; sourceTree = "<group>"; };
+		CCDDFB0F2A55455D003BDAC6 /* GameRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRecordTableViewCell.swift; sourceTree = "<group>"; };
 		CCEC338E2A46C1F2006D2109 /* GameResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewController.swift; sourceTree = "<group>"; };
 		CCEC33902A46C7C7006D2109 /* GameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDelegate.swift; sourceTree = "<group>"; };
 		CCEDDA122A52BFFE008084C5 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 		FF20B2B72A57E4420031535C /* MultiplyAndPlusGameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplyAndPlusGameData.swift; sourceTree = "<group>"; };
+
 		FF6B4E042A50675000E3EB36 /* PlusGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = PlusGame.storyboard; path = ../Model/PlusGame.storyboard; sourceTree = "<group>"; };
 		FF6B4E062A50676600E3EB36 /* PlusGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusGameViewController.swift; sourceTree = "<group>"; };
 		FF910BD82A4D525800B231E9 /* MultiplyGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MultiplyGame.storyboard; sourceTree = "<group>"; };
 		FF910BDE2A4D529700B231E9 /* MultiplyGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplyGameViewController.swift; sourceTree = "<group>"; };
+
 		FF996CBA2A52D71600A1F612 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +155,7 @@
 				CC5D8DE92A1928AB0089A850 /* Assets.xcassets */,
 				CC5D8DEB2A1928AB0089A850 /* LaunchScreen.storyboard */,
 				CC5D8DEE2A1928AB0089A850 /* Info.plist */,
-				FF996CBA2A52D71600A1F612 /* GoogleService-Info.plist */,
+				CCDD056B2A56A537007C54B1 /* GoogleService-Info.plist */,
 			);
 			path = NineNine;
 			sourceTree = "<group>";
@@ -321,6 +331,7 @@
 			children = (
 				CC8787202A24860700C79AD3 /* StartingViewController.swift */,
 				CCEC338E2A46C1F2006D2109 /* GameResultViewController.swift */,
+				CCDDFB0D2A554366003BDAC6 /* GameRecordViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -329,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				CC637CE02A4A13BD0003DA93 /* ReadyandFinish.storyboard */,
+				CCDDFB0F2A55455D003BDAC6 /* GameRecordTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -459,7 +471,8 @@
 				CC5D8DEA2A1928AB0089A850 /* Assets.xcassets in Resources */,
 				CC5D8DE82A1928AA0089A850 /* Home.storyboard in Resources */,
 				CC737CA52A460C5500841C99 /* Main.m4a in Resources */,
-				FF996CBB2A52D71600A1F612 /* GoogleService-Info.plist in Resources */,
+				CCDD056C2A56A537007C54B1 /* GoogleService-Info.plist in Resources */,
+
 				CC737CA92A46127100841C99 /* Game.m4a in Resources */,
 				FF6B4E052A50675000E3EB36 /* PlusGame.storyboard in Resources */,
 				CC4E09E62A1931DC00B7ED08 /* NanumGothicExtraBold.otf in Resources */,
@@ -483,6 +496,7 @@
 				CC637CCC2A4A0BF80003DA93 /* BBGameData.swift in Sources */,
 				CCEDDA132A52BFFE008084C5 /* ShowAlert.swift in Sources */,
 				CC5D8DE52A1928AA0089A850 /* HomeViewController.swift in Sources */,
+				CCDDFB0E2A554366003BDAC6 /* GameRecordViewController.swift in Sources */,
 				CC637CC22A4A064F0003DA93 /* HomeData.swift in Sources */,
 				CC5D8DF92A1929C40089A850 /* HexColor.swift in Sources */,
 				CC5D8DE12A1928AA0089A850 /* AppDelegate.swift in Sources */,
@@ -498,6 +512,7 @@
 				CC737CAE2A4628EB00841C99 /* AudioPlayer.swift in Sources */,
 				CCEC338F2A46C1F2006D2109 /* GameResultViewController.swift in Sources */,
 				CCCAFAF92A49BFC400D79EDD /* GameTimer.swift in Sources */,
+				CCDDFB102A55455D003BDAC6 /* GameRecordTableViewCell.swift in Sources */,
 				CC0362CA2A4A169F00A308C1 /* SelectedGameDelegate.swift in Sources */,
 				CC737CAC2A4616A100841C99 /* AudioPlayerDelegate.swift in Sources */,
 				FF910BDF2A4D529700B231E9 /* MultiplyGameViewController.swift in Sources */,
@@ -656,13 +671,14 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.likelioncuk.www.NineNine;
+				PRODUCT_BUNDLE_IDENTIFIER = com.likelion.www.NineNine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -690,13 +706,14 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.likelioncuk.www.NineNine;
+				PRODUCT_BUNDLE_IDENTIFIER = com.likelion.www.NineNine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
