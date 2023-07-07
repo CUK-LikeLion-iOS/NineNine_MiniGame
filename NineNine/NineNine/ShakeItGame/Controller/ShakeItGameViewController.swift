@@ -14,7 +14,10 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
     @IBOutlet weak var catImage: UIImageView!
     @IBOutlet weak var scoreView: UIView!
     @IBOutlet weak var countdownView: UIView!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timeBar: UIProgressView!
     
+    var gameTimer: GameTimer?
     let shakeitResources = ShakeItGameData()
     var readyCatImage: UIImage {
         get {
@@ -27,8 +30,6 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
         }
     }
     
-    var timer: DispatchSourceTimer?
-    var remainingTime: TimeInterval = 13.0
     var score: Int = 0 {
         didSet {    // 점수와 레이블의 텍스트를 동기화
             scoreLabel.text = String(score)
@@ -64,7 +65,8 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
         makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
         countDownBeforeGame(countDownView: countdownView)
         
-        timeTravel()
+        gameTimer = GameTimer(controller: self, timeBar: timeBar, timeLabel: timeLabel)
+        gameTimer?.startTimer()
         startGameAfter3seconds()
     }
     
