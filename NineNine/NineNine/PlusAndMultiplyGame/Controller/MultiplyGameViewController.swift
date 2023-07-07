@@ -15,7 +15,7 @@ class MultiplyGameViewController: UIViewController, GameDelegate {
     private var inputCount :Int = 0
     private var resultNum : Int?
     private var score : Int = 0
-    let multiplyResources = MultiplyGameData()
+    let multiplyResources = MultiplyAndPlusGameData()
     
     @IBOutlet private weak var quizView: UIStackView!
     @IBOutlet private weak var timeLabel: UILabel!
@@ -65,7 +65,7 @@ class MultiplyGameViewController: UIViewController, GameDelegate {
         makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
         userInputLabel.layer.masksToBounds = true
         userInputLabel.layer.cornerRadius = 20
-        homeImage.image = self.multiplyResources.catImage()
+        homeImage.image = self.multiplyResources.multiplyCatImage()
         quizImage.image = self.multiplyResources.answerImage()
         self.quizView.isHidden = true
         

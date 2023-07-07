@@ -15,7 +15,7 @@ class PlusGameViewController: UIViewController, GameDelegate {
     private var inputCount :Int = 0
     private var resultNum : Int?
     private var score : Int = 0
-    let multiplyResources = PlusGameData()
+    let multiplyResources = MultiplyAndPlusGameData()
 
         
     @IBOutlet private weak var quizImage: UIImageView!
@@ -66,6 +66,8 @@ class PlusGameViewController: UIViewController, GameDelegate {
         makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
         userInputLabel.layer.masksToBounds = true
         userInputLabel.layer.cornerRadius = 20
+        homeImage.image = self.multiplyResources.plusCatImage()
+        quizImage.image = self.multiplyResources.answerImage()
         self.quizView.isHidden = true
         
         // 게임 타이머
