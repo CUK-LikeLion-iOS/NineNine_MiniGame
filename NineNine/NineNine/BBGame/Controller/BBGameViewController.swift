@@ -26,19 +26,19 @@ class BBGameViewController: UIViewController, GameDelegate {
         return gameResource.fishThumbImage()
     }
     var score: Int = 0 {
-        didSet {    // 점수와 레이블의 텍스트를 동기화
-            scoreLabel.text = String(score)
+        didSet {
+            scoreLabel.text = "\(score)"
             if (score < 40) {
-                scoreLabel.textColor = .systemBlue
+                scoreLabel.textColor = .systemPink
             }
             else if (score < 70) {
-                scoreLabel.textColor = .systemCyan
-            }
-            else if (score < 100) {
                 scoreLabel.textColor = .systemGreen
             }
+            else if (score < 100) {
+                scoreLabel.textColor = .systemBlue
+            }
             else {
-                scoreLabel.textColor = .systemPink
+                scoreLabel.textColor = .systemPurple
             }
         }
     }
@@ -60,7 +60,6 @@ class BBGameViewController: UIViewController, GameDelegate {
         if (catImage.image != image) {
             catImage.image = image
             score += 1
-            scoreLabel.text = "\(score)"
         }
     }
     
