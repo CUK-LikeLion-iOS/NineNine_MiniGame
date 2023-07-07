@@ -8,9 +8,13 @@
 import UIKit
 
 struct ShakeItGameData {
-    private let shakingCatImage: UIImage = #imageLiteral(resourceName: "ShakeItGame_after_shake")
+    private let catImage: [UIImage] = [#imageLiteral(resourceName: "ShakeItGame_before_shake"), #imageLiteral(resourceName: "ShakeItGame_after_shake")]
     
-    func shakingCat() -> UIImage {
-        return shakingCatImage
+    func readyCatImage() -> UIImage {
+        return catImage[0]
+    }
+    
+    func shakingCatImage() -> UIImage {
+        return catImage[1]
     }
 }
