@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97F5FE432A4ED9EF0096FC3F /* TabTabGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F5FE422A4ED9EF0096FC3F /* TabTabGameViewController.swift */; };
+		97F5FE452A4EDA050096FC3F /* TabTabGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97F5FE442A4EDA050096FC3F /* TabTabGame.storyboard */; };
+		97F5FE472A552DE00096FC3F /* TapTapGameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F5FE462A552DE00096FC3F /* TapTapGameData.swift */; };
 		CC0362CA2A4A169F00A308C1 /* SelectedGameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0362C92A4A169F00A308C1 /* SelectedGameDelegate.swift */; };
 		CC0362CD2A4A1BDA00A308C1 /* GameStartingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0362CC2A4A1BDA00A308C1 /* GameStartingData.swift */; };
 		CC0362CF2A4A2AF800A308C1 /* ShakeItGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC0362CE2A4A2AF800A308C1 /* ShakeItGame.storyboard */; };
@@ -39,6 +42,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		97F5FE422A4ED9EF0096FC3F /* TabTabGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTabGameViewController.swift; sourceTree = "<group>"; };
+		97F5FE442A4EDA050096FC3F /* TabTabGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabTabGame.storyboard; sourceTree = "<group>"; };
+		97F5FE462A552DE00096FC3F /* TapTapGameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapTapGameData.swift; sourceTree = "<group>"; };
 		CC0362C92A4A169F00A308C1 /* SelectedGameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedGameDelegate.swift; sourceTree = "<group>"; };
 		CC0362CC2A4A1BDA00A308C1 /* GameStartingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStartingData.swift; sourceTree = "<group>"; };
 		CC0362CE2A4A2AF800A308C1 /* ShakeItGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShakeItGame.storyboard; sourceTree = "<group>"; };
@@ -83,6 +89,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		97F5FE3E2A4D930F0096FC3F /* TapTapGame */ = {
+			isa = PBXGroup;
+			children = (
+				97F5FE3F2A4D93190096FC3F /* Model */,
+				97F5FE402A4D93200096FC3F /* View */,
+				97F5FE412A4D93270096FC3F /* Controller */,
+			);
+			path = TapTapGame;
+			sourceTree = "<group>";
+		};
+		97F5FE3F2A4D93190096FC3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				97F5FE462A552DE00096FC3F /* TapTapGameData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		97F5FE402A4D93200096FC3F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				97F5FE442A4EDA050096FC3F /* TabTabGame.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		97F5FE412A4D93270096FC3F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				97F5FE422A4ED9EF0096FC3F /* TabTabGameViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		CC0362CB2A4A1BC200A308C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,10 +150,10 @@
 		CC5D8DDF2A1928AA0089A850 /* NineNine */ = {
 			isa = PBXGroup;
 			children = (
+				97F5FE3E2A4D930F0096FC3F /* TapTapGame */,
 				CC637CDD2A4A134D0003DA93 /* GameReadyandFinish */,
 				CC637CD92A4A0CB90003DA93 /* MultiplyGame */,
 				CC637CD52A4A0C970003DA93 /* PlusGame */,
-				CC637CD12A4A0C710003DA93 /* TabTabGame */,
 				CC637CCD2A4A0C4B0003DA93 /* ShakeItGame */,
 				CC637CC52A4A0A510003DA93 /* BBGame */,
 				CC637CBA2A4A04EA0003DA93 /* Home */,
@@ -247,37 +287,6 @@
 			sourceTree = "<group>";
 		};
 		CC637CD02A4A0C690003DA93 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		CC637CD12A4A0C710003DA93 /* TabTabGame */ = {
-			isa = PBXGroup;
-			children = (
-				CC637CD42A4A0C8E0003DA93 /* Model */,
-				CC637CD32A4A0C840003DA93 /* View */,
-				CC637CD22A4A0C7C0003DA93 /* Controller */,
-			);
-			path = TabTabGame;
-			sourceTree = "<group>";
-		};
-		CC637CD22A4A0C7C0003DA93 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		CC637CD32A4A0C840003DA93 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		CC637CD42A4A0C8E0003DA93 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -452,6 +461,7 @@
 			files = (
 				CC0362CF2A4A2AF800A308C1 /* ShakeItGame.storyboard in Resources */,
 				CC5D8DED2A1928AB0089A850 /* LaunchScreen.storyboard in Resources */,
+				97F5FE452A4EDA050096FC3F /* TabTabGame.storyboard in Resources */,
 				CC5D8DEA2A1928AB0089A850 /* Assets.xcassets in Resources */,
 				CC5D8DE82A1928AA0089A850 /* Home.storyboard in Resources */,
 				CC737CA52A460C5500841C99 /* Main.m4a in Resources */,
@@ -476,6 +486,7 @@
 				CC5D8DE52A1928AA0089A850 /* HomeViewController.swift in Sources */,
 				CC637CC22A4A064F0003DA93 /* HomeData.swift in Sources */,
 				CC5D8DF92A1929C40089A850 /* HexColor.swift in Sources */,
+				97F5FE432A4ED9EF0096FC3F /* TabTabGameViewController.swift in Sources */,
 				CC5D8DE12A1928AA0089A850 /* AppDelegate.swift in Sources */,
 				CC5D8DE32A1928AA0089A850 /* SceneDelegate.swift in Sources */,
 				CC0C834A2A1A40CF00DB6534 /* GameContentsTableViewCell.swift in Sources */,
@@ -485,6 +496,7 @@
 				CC8787212A24860700C79AD3 /* StartingViewController.swift in Sources */,
 				CCCAFAF72A49BD5A00D79EDD /* ShakeItGameViewController.swift in Sources */,
 				CC737CAE2A4628EB00841C99 /* AudioPlayer.swift in Sources */,
+				97F5FE472A552DE00096FC3F /* TapTapGameData.swift in Sources */,
 				CCEC338F2A46C1F2006D2109 /* GameResultViewController.swift in Sources */,
 				CCCAFAF92A49BFC400D79EDD /* GameTimer.swift in Sources */,
 				CC0362CA2A4A169F00A308C1 /* SelectedGameDelegate.swift in Sources */,
