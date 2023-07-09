@@ -14,30 +14,42 @@ class GameRecordViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var gameRecordTableView: UITableView!
     @IBOutlet weak var noDataView: UIView!
 
+    // Delegate 관련 프로퍼티
     weak var gameRecordDelegate: GameRecordDelegate?
     var gameRecordList: [[String: Any]] {
-        return gameRecordDelegate?.gameRecord() ?? []
+        guard let gameRecord = gameRecordDelegate?.gameRecord() else {
+            print("Error: gameRecordDelegate Missing!!")
+            moveBackToStartingVC(vc: self)
+            return []
+        }
+        
+        return gameRecord
     }
     var highScore: String {
-        let score = gameRecordDelegate?.gameHighScore() ?? -1
-        if (score == -1) {
-            return "--"
-        } else {
-            return "\(score)"
+        guard let gameHighScore = gameRecordDelegate?.gameHighScore() else {
+            print("Error: gameRecordDelegate Missing!!")
+            moveBackToStartingVC(vc: self)
+            return ""
         }
+        
+        return "\(gameHighScore)"
     }
+
+    /* -------------------------------------------------------------------------- */
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        gameRecordTableView.delegate = self
-        gameRecordTableView.dataSource = self
         
-        self.makeViewRoundShape(cornerRadius: 20)
-        gameRecordTableView.backgroundColor = UIColor(hex: "#F4F4F4")
         if (!gameRecordList.isEmpty) {
             noDataView.isHidden = true
         }
+        
+        gameRecordTableView.delegate = self
+        gameRecordTableView.dataSource = self
+        gameRecordTableView.backgroundColor = UIColor(hex: "#F4F4F4")
+        
+        self.makeViewRoundShape(cornerRadius: 20)
+        
         highScoreLabel.text = "최고 점수: \(highScore)점"
     }
     
@@ -52,9 +64,9 @@ class GameRecordViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = gameRecordTableView.dequeueReusableCell(withIdentifier: "GameRecordCell", for: indexPath) as! GameRecordTableViewCell
-        
-        let gameScore = gameRecordList[indexPath.row]["gameScore"]! as! Int
-        let gamePlayTime = gameRecordList[indexPath.row]["gameTime"]! as! String
+        let gameRecord = gameRecordList[indexPath.row]
+        let gameScore = gameRecord["gameScore"]! as! Int
+        let gamePlayTime = gameRecord["gameTime"]! as! String
         
         cell.gameScoreLabel.text = "\(gameScore)점"
         cell.gamePlayTimeLabel.text = gamePlayTime

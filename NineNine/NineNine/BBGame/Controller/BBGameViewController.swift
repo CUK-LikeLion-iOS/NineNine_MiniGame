@@ -17,32 +17,32 @@ class BBGameViewController: UIViewController, GameDelegate {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timeBar: UIProgressView!
     
-    let gameResource: BBGameData = BBGameData()
-    var gameTimer: GameTimer?
-    var swipingCatImageList: [UIImage] {
-            return gameResource.swipingCatImageArray()
-    }
+
+    // Game Resource 관련 프로퍼티
+    let gameResource: BBGameResource = BBGameResource()
     var fishThumbImage: UIImage {
         return gameResource.fishThumbImage()
     }
+    var swipingCatImageList: [UIImage] {
+        return gameResource.swipingCatImageArray()
+    }
+    
+    // Game Timer 관련 프로퍼티
+    var gameTimer: GameTimer?
+    
+    // 게임 점수 관련 프로퍼티
+    let highScore = DataStorage().loadHighScore(gameName: "BBGame")
     var score: Int = 0 {
         didSet {
+            let scoreBoardColor = gameResource.selectScoreBoardColor(score: score, highScore: self.highScore)
+            scoreView.backgroundColor = scoreBoardColor[0]
+            scoreLabel.textColor = scoreBoardColor[1]
             scoreLabel.text = "\(score)"
-            if (score < 40) {
-                scoreLabel.textColor = .systemPink
-            }
-            else if (score < 70) {
-                scoreLabel.textColor = .systemGreen
-            }
-            else if (score < 100) {
-                scoreLabel.textColor = .systemBlue
-            }
-            else {
-                scoreLabel.textColor = .systemPurple
-            }
         }
     }
 
+    /* -------------------------------------------------------------------------- */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

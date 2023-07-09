@@ -16,35 +16,47 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecor
     @IBOutlet weak var gameTitle: UILabel!
     @IBOutlet weak var gameStartBtn: UIImageView!
     @IBOutlet weak var loadingView: UIView!
-    
+
+    // Delegate 프로퍼티
     weak var audioDelegate: AudioPlayerDelegate?
     weak var selectedGameDelegate: SelectedGameDelegate?
-    var player: AVAudioPlayer? = makeAudioPlayer(audioResource: "Game")
-    let gameStartingData = GameData()
-    let db = FireStore()
+    var selectedGameNumber: Int {
+        guard let gameNumber = selectedGameDelegate?.selectedGameNumber() else {
+            print("Error: selectedGameDelegate Missing!")
+            moveBackToHomeVC(vc: self)
+            return -1
+        }
+        return gameNumber
+    }
+
+    // Network 관련 프로퍼티
     var isConnectedNetwork = true
     let monitor = NWPathMonitor()
-    var gamePlayTimeAndScore: [[String: Any]] = []
-    var highScore: Int = -1
+    
+    // DB 관련 프로퍼티
+    let db = DataStorage()
+    var gameScoreAndPlayTime: [[String: Any]] = []
+    
+    // Audio 관련 프로퍼티
+    var player: AVAudioPlayer? = makeAudioPlayer(audioResource: "Game")
+    
+    // Game Resource 관련 프로퍼티
+    let gameResource = GameResource()
     var gameStartBtnImages: [UIImage] {
-        get {
-            return gameStartingData.gameStartBtnImageArray()
-        }
+        return gameResource.gameStartBtnImageArray()
     }
     var gameSBandVCs: [(String, String)] {
-        get {
-            return gameStartingData.gameStoryBoardAndViewControllers()
-        }
+        return gameResource.gameStoryBoardAndViewControllers()
     }
     var selectedGameTitle: String {
-        get {
-            let selectedGameNumber = selectedGameDelegate?.selectedGameNumber() ?? 0
-            return gameStartingData.gameTitleList()[selectedGameNumber]
-        }
+        return gameResource.gameTitleList()[selectedGameNumber]
     }
+    
+    /* --------------------------- View LifeCycle 메서드 --------------------------- */
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.loadingView.isHidden = true
         renderSelectedGameResource()
         detectNetworkConnected()
@@ -53,17 +65,6 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecor
     override func viewWillAppear(_ animated: Bool) {
         gameStartBtn.image = gameStartBtnImages[0]
         audioDelegate?.playAudioPlayer()
-    }
-    
-    func renderSelectedGameResource() {
-        guard let gameNumber = selectedGameDelegate?.selectedGameNumber() else {
-            return
-        }
-        let gameStartingResource = gameStartingData.gameResource()
-        
-        gameTitle.text = gameStartingResource[gameNumber].0
-        gameDescription.text = gameStartingResource[gameNumber].1
-        titleImage.image = gameStartingResource[gameNumber].2
     }
 
     /* --------------------------- IBAction 메서드 --------------------------- */
@@ -78,27 +79,24 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecor
     
     @IBAction func showGameRecord(_ sender: UIButton) {
         self.loadingView.isHidden = false
-        // 비동기 처리
+        
         Task {
-            self.gamePlayTimeAndScore = await db.loadGameRecord(gameName: selectedGameTitle)
-            self.highScore = await db.loadHighScore(gameName: selectedGameTitle)
+            self.gameScoreAndPlayTime = await db.loadGameRecord(gameName: selectedGameTitle)
             self.loadingView.isHidden = true
             moveToGameRecordVC(startingVC: self)
         }
+        
     }
     
     @IBAction func moveGameView(_ sender: UIButton) {
-        guard let gameNumber = selectedGameDelegate?.selectedGameNumber() else {
-            return
-        }
-        moveToGameVC(startingVC: self, gameSBandVC: gameSBandVCs[gameNumber])
-
+        moveToGameVC(startingVC: self, gameSBandVC: gameSBandVCs[selectedGameNumber])
+        
         audioDelegate?.stopAudioPlayer() // 게임 스타트 버튼 눌리면 Main BGM 꺼짐
         player?.delegate = self
         player?.prepareToPlay()
         player?.play()
     }
-//    }
+    
     /* -------------------------------------------------------------------- */
 
     // 오디오 플레이어가 종료되었으면 할당 해제
@@ -132,13 +130,24 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecor
         self.monitor.cancel()
     }
     
-    /* ------------------------- Game Record Delegate 필수 구현 메서드 ---------------------------- */
+    /* ------------------------- Game Record Delegate 필수 구현 메서드 ------------------------ */
     
     func gameRecord() -> [[String : Any]] {
-        return gamePlayTimeAndScore
+        return gameScoreAndPlayTime
     }
     
     func gameHighScore() -> Int {
-        return highScore
+        return db.loadHighScore(gameName: selectedGameTitle)
+    }
+    
+    /* ----------------------------------------------------------------------------------- */
+    
+    func renderSelectedGameResource() {
+        let gameNumber = selectedGameNumber
+        let gameStartingResource = gameResource.gameInformation()
+        
+        gameTitle.text = gameStartingResource[gameNumber].0
+        gameDescription.text = gameStartingResource[gameNumber].1
+        titleImage.image = gameStartingResource[gameNumber].2
     }
 }
