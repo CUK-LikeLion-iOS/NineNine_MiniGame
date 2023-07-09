@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseFirestore
 
-struct GameData {
+struct GameResource {
     private let resources: [(String, String, UIImage)] = [
         ("탭탭!", "화면에 있는 치즈 버튼을\n10초동안\n마구마구 누르세요!.", #imageLiteral(resourceName: "TapTapGame_start_cat")),
         ("쉐킷쉐킷!", "휴대폰을 마음껏 흔들어주세요!\n너무 열심히 흔든 나머지\n휴대폰이 날아가지 않도록 주의하세요.", #imageLiteral(resourceName: "ShakeItGame_start_cat")),
