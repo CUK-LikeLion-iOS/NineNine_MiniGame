@@ -13,22 +13,42 @@ class GameResultViewController: UIViewController {
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var gameImageView: UIImageView!
 
+    // Delegate 관련 프로퍼티
     weak var gameDelegate: GameDelegate?
     weak var selectedGameDelegate: SelectedGameDelegate?
-    let db = FireStore()
-    let gameData = GameData()
     var gameScore: Int {
-        get {
-            return gameDelegate?.showGameResult() ?? 0
+        guard let score = gameDelegate?.showGameResult() else {
+            print("Error: gameDelegate Missing!!")
+            moveBackToStartingVC(vc: self)
+            return -1
         }
+        
+        return score
     }
-    var selectedGameTitle: String {
-        get {
-            let selectedGameNumber = selectedGameDelegate?.selectedGameNumber() ?? 0
-            return gameData.gameTitleList()[selectedGameNumber]
+    var selectedGameNumber: Int {
+        guard let gameNumber = selectedGameDelegate?.selectedGameNumber() else {
+            print("Error: selectedGameDelegate Missing!")
+            moveBackToStartingVC(vc: self)
+            return -1
         }
+        
+        return gameNumber
     }
 
+    // DB 관련 프로퍼티
+    let db = DataStorage()
+    
+    // Game Resource 관련 프로퍼티
+    let gameResource = GameResource()
+    var selectedGameTitle: String {
+        return gameResource.gameTitleList()[selectedGameNumber]
+    }
+    var gameInformationList: [(String, String, UIImage)] {
+        return gameResource.gameInformation()
+    }
+
+    /* -------------------------------------------------------------------------- */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,19 +58,14 @@ class GameResultViewController: UIViewController {
     }
     
     func renderSelectedGameImage() {
-        guard let gameNumber = selectedGameDelegate?.selectedGameNumber() else {
-            return
-        }
-        let gameResource = gameData.gameResource()
-        
-        gameImageView.image = gameResource[gameNumber].2
+        gameImageView.image = gameInformationList[selectedGameNumber].2
     }
     
     @IBAction func moveBackToStartBtnPressed(_ sender: UIButton) {
-        // 타임 아웃 구현해보기 목표,,,,
+        loadingView.isHidden = false
         Task {
-            loadingView.isHidden = false
-            await self.db.recordScore(score: self.gameScore, gameName: "\(self.selectedGameTitle)")
+            // 타임 아웃 구현해보기 목표,,,,
+            await self.db.recordScore(score: gameScore, gameName: selectedGameTitle)
             loadingView.isHidden = true
             moveBackToStartingVC(vc: self)
         }
