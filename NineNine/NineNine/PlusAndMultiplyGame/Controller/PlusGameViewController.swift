@@ -14,7 +14,24 @@ class PlusGameViewController: UIViewController, GameDelegate {
     private var userInput : Int?
     private var inputCount :Int = 0
     private var resultNum : Int?
-    private var score : Int = 0
+    
+    var score: Int = 0 {
+        didSet {    // 점수와 레이블의 텍스트를 동기화
+            scoreLabel.text = String(score)
+            if (score < 3) {
+                scoreLabel.textColor = .systemBlue
+            }
+            else if (score < 5) {
+                scoreLabel.textColor = .systemCyan
+            }
+            else if (score < 7) {
+                scoreLabel.textColor = .systemGreen
+            }
+            else {
+                scoreLabel.textColor = .systemPink
+            }
+        }
+    }
     let multiplyResources = MultiplyAndPlusGameData()
 
         
