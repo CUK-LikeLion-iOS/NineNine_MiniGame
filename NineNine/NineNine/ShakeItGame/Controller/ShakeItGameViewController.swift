@@ -54,18 +54,20 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
         makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
         countDownBeforeGame(countDownView: countdownView)
         
+        shakingHaptic = UIImpactFeedbackGenerator(style: .heavy)
+        
         gameTimer = GameTimer(controller: self, timeBar: timeBar, timeLabel: timeLabel)
         gameTimer?.startTimer()
-        shakingHaptic = UIImpactFeedbackGenerator(style: .heavy)
-        startGameAfter3seconds()
+        startMotionManagerAfter3seconds()
+        endMotionManagerAfter13seconds()
     }
     
     // 매 0.1초마다 기울임 검사
     func checkTilt() {
-        guard motionManager.isDeviceMotionAvailable else { return }
-        motionManager?.deviceMotionUpdateInterval = 0.1
+        guard self.motionManager.isDeviceMotionAvailable else { return }
+        self.motionManager?.deviceMotionUpdateInterval = 0.1
         
-        motionManager.startDeviceMotionUpdates(to: .main) { [weak self] (motion, error) in
+        self.motionManager.startDeviceMotionUpdates(to: .main) { [weak self] (motion, error) in
             guard let self = self else { return }
             guard let motion = motion else { return }
             
@@ -87,20 +89,19 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
         }
     }
     
-    func timeTravel() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 13.0) {
-            self.motionManager.stopDeviceMotionUpdates()
-            moveToGameResultVC(gameVC: self)
-        }
-    }
-    
-    func startGameAfter3seconds() {
+    func startMotionManagerAfter3seconds() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.motionManager = CMMotionManager()
             self.checkTilt()
         }
     }
-
+    
+    func endMotionManagerAfter13seconds() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 13.0) {
+            self.motionManager.stopDeviceMotionUpdates()
+        }
+    }
+    
     func showGameResult() -> Int {
         return score
     }
