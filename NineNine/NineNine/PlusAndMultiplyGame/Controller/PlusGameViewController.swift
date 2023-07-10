@@ -24,9 +24,9 @@ class PlusGameViewController: UIViewController, GameDelegate {
             scoreLabel.text = "\(score)"
         }
     }
-   
-
-        
+    
+    
+    
     @IBOutlet private weak var quizImage: UIImageView!
     @IBOutlet private weak var quizView: UIStackView!
     @IBOutlet private weak var timeLabel: UILabel!
@@ -47,8 +47,14 @@ class PlusGameViewController: UIViewController, GameDelegate {
         case 0...9:
             if inputCount == 0 || resultNum! < 10
             {
-                userInput = sender.tag
-                inputCount += 1
+                if (resultNum! > 10 && sender.tag == 0)
+                {
+                    break;
+                }
+                else {
+                    userInput = sender.tag
+                    inputCount += 1
+                }
             }
             // 결과가 10 이상인 것은 두번의 입력 필요
             else if resultNum! >= 10 && inputCount == 1 {
@@ -112,7 +118,7 @@ class PlusGameViewController: UIViewController, GameDelegate {
         }
         
     }
-   
+    
     // 처음 계산 화면이 안보이기 위함
     private func hideHomeImage() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
