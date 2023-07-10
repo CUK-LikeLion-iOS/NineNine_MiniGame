@@ -46,12 +46,12 @@
 		CCEDDA0F2A4F41AD008084C5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CCEDDA0E2A4F41AD008084C5 /* FirebaseFirestore */; };
 		CCEDDA112A4F41AD008084C5 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CCEDDA102A4F41AD008084C5 /* FirebaseFirestoreSwift */; };
 		CCEDDA132A52BFFE008084C5 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEDDA122A52BFFE008084C5 /* ShowAlert.swift */; };
-		CCFE5E412A580EC3007CAB23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCFE5E402A580EC3007CAB23 /* GoogleService-Info.plist */; };
 		FF20B2B82A57E4420031535C /* MultiplyAndPlusGameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20B2B72A57E4420031535C /* MultiplyAndPlusGameData.swift */; };
 		FF6B4E052A50675000E3EB36 /* PlusGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF6B4E042A50675000E3EB36 /* PlusGame.storyboard */; };
 		FF6B4E072A50676600E3EB36 /* PlusGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6B4E062A50676600E3EB36 /* PlusGameViewController.swift */; };
 		FF910BD92A4D525800B231E9 /* MultiplyGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF910BD82A4D525800B231E9 /* MultiplyGame.storyboard */; };
 		FF910BDF2A4D529700B231E9 /* MultiplyGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF910BDE2A4D529700B231E9 /* MultiplyGameViewController.swift */; };
+		FF94AFD82A5C110000F9B16A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF94AFD72A5C110000F9B16A /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,12 +94,12 @@
 		CCEC338E2A46C1F2006D2109 /* GameResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewController.swift; sourceTree = "<group>"; };
 		CCEC33902A46C7C7006D2109 /* GameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDelegate.swift; sourceTree = "<group>"; };
 		CCEDDA122A52BFFE008084C5 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
-		CCFE5E402A580EC3007CAB23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF20B2B72A57E4420031535C /* MultiplyAndPlusGameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplyAndPlusGameData.swift; sourceTree = "<group>"; };
 		FF6B4E042A50675000E3EB36 /* PlusGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = PlusGame.storyboard; path = ../Model/PlusGame.storyboard; sourceTree = "<group>"; };
 		FF6B4E062A50676600E3EB36 /* PlusGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusGameViewController.swift; sourceTree = "<group>"; };
 		FF910BD82A4D525800B231E9 /* MultiplyGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MultiplyGame.storyboard; sourceTree = "<group>"; };
 		FF910BDE2A4D529700B231E9 /* MultiplyGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplyGameViewController.swift; sourceTree = "<group>"; };
+		FF94AFD72A5C110000F9B16A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,9 +189,9 @@
 				CC5D8DE02A1928AA0089A850 /* AppDelegate.swift */,
 				CC5D8DE22A1928AA0089A850 /* SceneDelegate.swift */,
 				CC5D8DE92A1928AB0089A850 /* Assets.xcassets */,
+				FF94AFD72A5C110000F9B16A /* GoogleService-Info.plist */,
 				CC5D8DEB2A1928AB0089A850 /* LaunchScreen.storyboard */,
 				CC5D8DEE2A1928AB0089A850 /* Info.plist */,
-				CCFE5E402A580EC3007CAB23 /* GoogleService-Info.plist */,
 			);
 			path = NineNine;
 			sourceTree = "<group>";
@@ -472,7 +472,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCFE5E412A580EC3007CAB23 /* GoogleService-Info.plist in Resources */,
+				FF94AFD82A5C110000F9B16A /* GoogleService-Info.plist in Resources */,
 				CC0362CF2A4A2AF800A308C1 /* ShakeItGame.storyboard in Resources */,
 				CC5D8DED2A1928AB0089A850 /* LaunchScreen.storyboard in Resources */,
 				97F5FE452A4EDA050096FC3F /* TabTabGame.storyboard in Resources */,
