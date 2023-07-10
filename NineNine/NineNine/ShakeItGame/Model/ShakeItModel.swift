@@ -17,4 +17,24 @@ struct ShakeItGameData {
     func shakingCatImage() -> UIImage {
         return catImage[1]
     }
+    
+    
+    func selectScoreBoardColor(score: Int) -> UIColor {
+        var scoreBoardColor: UIColor = .white
+        switch score {
+        case score where score < 20:
+            scoreBoardColor = .systemRed
+            break
+        case score where score < 50:
+            scoreBoardColor = .systemGreen
+            break
+        case score where score < 80:
+            scoreBoardColor = .systemBlue
+            break
+        default:
+            scoreBoardColor = .systemPurple
+            break
+        }
+        return scoreBoardColor
+    }
 }
