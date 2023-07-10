@@ -14,24 +14,17 @@ class MultiplyGameViewController: UIViewController, GameDelegate {
     private var userInput : Int?
     private var inputCount :Int = 0
     private var resultNum : Int?
+    let multiplyResources = MultiplyAndPlusGameData()
+    let highScore = DataStorage().loadHighScore(gameName: "BBGame")
     var score: Int = 0 {
-        didSet {    // 점수와 레이블의 텍스트를 동기화
-            scoreLabel.text = String(score)
-            if (score < 3) {
-                scoreLabel.textColor = .systemBlue
-            }
-            else if (score < 5) {
-                scoreLabel.textColor = .systemCyan
-            }
-            else if (score < 7) {
-                scoreLabel.textColor = .systemGreen
-            }
-            else {
-                scoreLabel.textColor = .systemPink
-            }
+        didSet {
+            let scoreBoardColor = multiplyResources.selectScoreBoardColor(score: score, highScore: self.highScore)
+            scoreView.backgroundColor = scoreBoardColor[0]
+            scoreLabel.textColor = scoreBoardColor[1]
+            scoreLabel.text = "\(score)"
         }
     }
-    let multiplyResources = MultiplyAndPlusGameData()
+    
     
     @IBOutlet private weak var quizView: UIStackView!
     @IBOutlet private weak var timeLabel: UILabel!
