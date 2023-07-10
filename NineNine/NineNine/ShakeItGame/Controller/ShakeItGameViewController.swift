@@ -33,18 +33,7 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
     var score: Int = 0 {
         didSet {    // 점수와 레이블의 텍스트를 동기화
             scoreLabel.text = String(score)
-            if (score < 10) {
-                scoreLabel.textColor = .systemBlue
-            }
-            else if (score < 30) {
-                scoreLabel.textColor = .systemCyan
-            }
-            else if (score < 50) {
-                scoreLabel.textColor = .systemGreen
-            }
-            else {
-                scoreLabel.textColor = .systemPink
-            }
+            scoreLabel.textColor = shakeitResources.selectScoreBoardColor(score: score)
         }
     }
     
@@ -56,7 +45,7 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
     let TILTING_THRESHOLD: Double = 0.3
     
     // 진동(햅틱) 프로퍼티
-    let shakingHaptic = UIImpactFeedbackGenerator(style: .medium)
+    var shakingHaptic: UIImpactFeedbackGenerator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +56,7 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
         
         gameTimer = GameTimer(controller: self, timeBar: timeBar, timeLabel: timeLabel)
         gameTimer?.startTimer()
+        shakingHaptic = UIImpactFeedbackGenerator(style: .heavy)
         startGameAfter3seconds()
     }
     
@@ -86,6 +76,7 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
             if (abs(rollChange) > TILTING_THRESHOLD) {
                 self.score += 1
                 self.catImage.image = self.shakingCatImage
+                shakingHaptic.prepare()
                 shakingHaptic.impactOccurred()
             }
             else {
