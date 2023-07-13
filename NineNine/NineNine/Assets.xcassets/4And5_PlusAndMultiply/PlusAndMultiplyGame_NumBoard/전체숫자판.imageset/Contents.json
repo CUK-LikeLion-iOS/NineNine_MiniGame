@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "숫자판.png",
+      "filename" : "number_board.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "숫자판@2x.png",
+      "filename" : "number_board@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "숫자판@3x.png",
+      "filename" : "number_board@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
