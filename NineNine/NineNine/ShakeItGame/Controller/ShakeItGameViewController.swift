@@ -33,18 +33,7 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
     var score: Int = 0 {
         didSet {    // 점수와 레이블의 텍스트를 동기화
             scoreLabel.text = String(score)
-            if (score < 10) {
-                scoreLabel.textColor = .systemBlue
-            }
-            else if (score < 30) {
-                scoreLabel.textColor = .systemCyan
-            }
-            else if (score < 50) {
-                scoreLabel.textColor = .systemGreen
-            }
-            else {
-                scoreLabel.textColor = .systemPink
-            }
+            scoreLabel.textColor = shakeitResources.selectScoreBoardColor(score: score)
         }
     }
     
@@ -56,7 +45,7 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
     let TILTING_THRESHOLD: Double = 0.3
     
     // 진동(햅틱) 프로퍼티
-    let shakingHaptic = UIImpactFeedbackGenerator(style: .medium)
+    var shakingHaptic: UIImpactFeedbackGenerator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,17 +54,20 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
         makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
         countDownBeforeGame(countDownView: countdownView)
         
+        shakingHaptic = UIImpactFeedbackGenerator(style: .heavy)
+        
         gameTimer = GameTimer(controller: self, timeBar: timeBar, timeLabel: timeLabel)
         gameTimer?.startTimer()
-        startGameAfter3seconds()
+        startMotionManagerAfter3seconds()
+        endMotionManagerAfter13seconds()
     }
     
     // 매 0.1초마다 기울임 검사
     func checkTilt() {
-        guard motionManager.isDeviceMotionAvailable else { return }
-        motionManager?.deviceMotionUpdateInterval = 0.1
+        guard self.motionManager.isDeviceMotionAvailable else { return }
+        self.motionManager?.deviceMotionUpdateInterval = 0.1
         
-        motionManager.startDeviceMotionUpdates(to: .main) { [weak self] (motion, error) in
+        self.motionManager.startDeviceMotionUpdates(to: .main) { [weak self] (motion, error) in
             guard let self = self else { return }
             guard let motion = motion else { return }
             
@@ -86,6 +78,7 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
             if (abs(rollChange) > TILTING_THRESHOLD) {
                 self.score += 1
                 self.catImage.image = self.shakingCatImage
+                shakingHaptic.prepare()
                 shakingHaptic.impactOccurred()
             }
             else {
@@ -96,20 +89,19 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
         }
     }
     
-    func timeTravel() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 13.0) {
-            self.motionManager.stopDeviceMotionUpdates()
-            moveToGameResultVC(gameVC: self)
-        }
-    }
-    
-    func startGameAfter3seconds() {
+    func startMotionManagerAfter3seconds() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.motionManager = CMMotionManager()
             self.checkTilt()
         }
     }
-
+    
+    func endMotionManagerAfter13seconds() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 13.0) {
+            self.motionManager.stopDeviceMotionUpdates()
+        }
+    }
+    
     func showGameResult() -> Int {
         return score
     }

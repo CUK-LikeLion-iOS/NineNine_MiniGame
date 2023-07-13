@@ -14,27 +14,19 @@ class PlusGameViewController: UIViewController, GameDelegate {
     private var userInput : Int?
     private var inputCount :Int = 0
     private var resultNum : Int?
-    
+    let plusResources = MultiplyAndPlusGameData()
+    let highScore = DataStorage().loadHighScore(gameName: "BBGame")
     var score: Int = 0 {
-        didSet {    // 점수와 레이블의 텍스트를 동기화
-            scoreLabel.text = String(score)
-            if (score < 3) {
-                scoreLabel.textColor = .systemBlue
-            }
-            else if (score < 5) {
-                scoreLabel.textColor = .systemCyan
-            }
-            else if (score < 7) {
-                scoreLabel.textColor = .systemGreen
-            }
-            else {
-                scoreLabel.textColor = .systemPink
-            }
+        didSet {
+            let scoreBoardColor = plusResources.selectScoreBoardColor(score: score, highScore: self.highScore)
+            scoreView.backgroundColor = scoreBoardColor[0]
+            scoreLabel.textColor = scoreBoardColor[1]
+            scoreLabel.text = "\(score)"
         }
     }
-    let multiplyResources = MultiplyAndPlusGameData()
-
-        
+    
+    
+    
     @IBOutlet private weak var quizImage: UIImageView!
     @IBOutlet private weak var quizView: UIStackView!
     @IBOutlet private weak var timeLabel: UILabel!
@@ -55,8 +47,14 @@ class PlusGameViewController: UIViewController, GameDelegate {
         case 0...9:
             if inputCount == 0 || resultNum! < 10
             {
-                userInput = sender.tag
-                inputCount += 1
+                if (resultNum! > 10 && sender.tag == 0)
+                {
+                    break;
+                }
+                else {
+                    userInput = sender.tag
+                    inputCount += 1
+                }
             }
             // 결과가 10 이상인 것은 두번의 입력 필요
             else if resultNum! >= 10 && inputCount == 1 {
@@ -83,8 +81,8 @@ class PlusGameViewController: UIViewController, GameDelegate {
         makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
         userInputLabel.layer.masksToBounds = true
         userInputLabel.layer.cornerRadius = 20
-        homeImage.image = self.multiplyResources.plusCatImage()
-        quizImage.image = self.multiplyResources.answerImage()
+        homeImage.image = self.plusResources.plusCatImage()
+        quizImage.image = self.plusResources.answerImage()
         self.quizView.isHidden = true
         
         // 게임 타이머
@@ -120,7 +118,7 @@ class PlusGameViewController: UIViewController, GameDelegate {
         }
         
     }
-   
+    
     // 처음 계산 화면이 안보이기 위함
     private func hideHomeImage() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {

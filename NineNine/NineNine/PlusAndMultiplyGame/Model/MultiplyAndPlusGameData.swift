@@ -20,4 +20,26 @@ struct MultiplyAndPlusGameData {
     func answerImage () -> UIImage {
         return numberImage
     }
+    func selectScoreBoardColor(score: Int, highScore: Int) -> [UIColor] {
+        var scoreBoardColor: [UIColor] = [.white, .white] // 0 -> backgroundColor, 1 -> textColor
+        switch score {
+        case score where score <= 2:
+            let changeIndex = score <= 1 ? 0 : 1
+            scoreBoardColor[changeIndex] = .systemRed
+            break
+        case score where score <= 5:
+            let changeIndex = score <= 3 ? 0 : 1
+            scoreBoardColor[changeIndex] = .systemGreen
+            break
+        case score where score <= 8 || score <= highScore:
+            let changeIndex = score <= 6 ? 0 : 1
+            scoreBoardColor[changeIndex] = .systemBlue
+            break
+        default:
+            let changeIndex = score <= highScore + 5 ? 0 : 1
+            scoreBoardColor[changeIndex] = .systemPurple
+            break
+        }
+        return scoreBoardColor
+    }
 }
