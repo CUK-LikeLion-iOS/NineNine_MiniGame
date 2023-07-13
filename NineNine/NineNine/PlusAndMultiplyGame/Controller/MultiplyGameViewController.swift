@@ -15,12 +15,14 @@ class MultiplyGameViewController: UIViewController, GameDelegate {
     private var inputCount :Int = 0
     private var resultNum : Int?
     let multiplyResources = MultiplyAndPlusGameData()
-    let highScore = DataStorage().loadHighScore(gameName: "BBGame")
+    let highScore = DataStorage().loadHighScore(gameName: "MultiplyGame")
+    var rank: UIColor = .systemRed
     var score: Int = 0 {
         didSet {
             let scoreBoardColor = multiplyResources.selectScoreBoardColor(score: score, highScore: self.highScore)
             scoreView.backgroundColor = scoreBoardColor[0]
             scoreLabel.textColor = scoreBoardColor[1]
+            self.rank = scoreBoardColor[2]
             scoreLabel.text = "\(score)"
         }
     }
@@ -125,7 +127,20 @@ class MultiplyGameViewController: UIViewController, GameDelegate {
             self.quizView.isHidden = false
         }
     }
-    func showGameResult() -> Int {
+    func gameScore() -> Int {
         return score
+    }
+    
+    func gameRank() -> Int {
+        switch self.rank {
+        case .systemRed:
+            return 0
+        case .systemGreen:
+            return 1
+        case .systemBlue:
+            return 2
+        default:
+            return 3
+        }
     }
 }
