@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "제목_없는_아트워크 46.png",
+      "filename" : "bad_scoreboard.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "제목_없는_아트워크 46@2x.png",
+      "filename" : "bad_scoreboard@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "제목_없는_아트워크 46@3x.png",
+      "filename" : "bad_scoreboard@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
