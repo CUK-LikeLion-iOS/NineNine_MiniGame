@@ -10,7 +10,7 @@ import UIKit
 func moveToGameVC(startingVC: UIViewController, gameSBandVC: (String, String)) {
     let storyboard = UIStoryboard(name: "\(gameSBandVC.0)", bundle: nil)
     let gameVC = storyboard.instantiateViewController(withIdentifier: "\(gameSBandVC.1)")
-    
+
     startingVC.navigationController?.pushViewController(gameVC, animated: true)
 }
 
