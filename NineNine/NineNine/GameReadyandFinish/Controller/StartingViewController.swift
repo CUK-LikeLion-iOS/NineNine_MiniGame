@@ -11,10 +11,8 @@ import Network
 
 class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecordDelegate {
 
-    @IBOutlet weak var titleImage: UIImageView!
     @IBOutlet weak var gameDescription: UILabel!
     @IBOutlet weak var gameTitle: UILabel!
-    @IBOutlet weak var gameStartBtn: UIImageView!
     @IBOutlet weak var loadingView: UIView!
 
     // Delegate 프로퍼티
@@ -42,9 +40,6 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecor
     
     // Game Resource 관련 프로퍼티
     let gameResource = GameResource()
-    var gameStartBtnImages: [UIImage] {
-        return gameResource.gameStartBtnImageArray()
-    }
     var gameSBandVCs: [(String, String)] {
         return gameResource.gameStoryBoardAndViewControllers()
     }
@@ -63,15 +58,10 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecor
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        gameStartBtn.image = gameStartBtnImages[0]
         audioDelegate?.playAudioPlayer()
     }
 
     /* --------------------------- IBAction 메서드 --------------------------- */
-    
-    @IBAction func gameStartBtnPressed(_ sender: UIButton) {
-        gameStartBtn.image = gameStartBtnImages[1]
-    }
 
     @IBAction func moveBack(_ sender: UIButton) {
         moveBackToHomeVC(vc: self)
@@ -148,6 +138,5 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecor
         
         gameTitle.text = gameStartingResource[gameNumber].0
         gameDescription.text = gameStartingResource[gameNumber].1
-        titleImage.image = gameStartingResource[gameNumber].2
     }
 }

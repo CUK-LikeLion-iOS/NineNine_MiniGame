@@ -80,7 +80,7 @@ class TabTabGameViewController: UIViewController, GameDelegate {
         gameTimer?.startTimer()
     }
    
-    func showGameResult() -> Int {
+    func gameScore() -> Int {
         return score
     }
 

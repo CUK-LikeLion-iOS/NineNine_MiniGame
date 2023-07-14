@@ -7,10 +7,10 @@
 
 import UIKit
 
-protocol GameDelegate: AnyObject {
-    func showGameResult() -> Int
+@objc protocol GameDelegate: AnyObject {
+    func gameScore() -> Int
+    @objc optional func gameRank() -> Int
 }
-
 
 protocol GameRecordDelegate: AnyObject {
     func gameRecord() -> [[String: Any]]
