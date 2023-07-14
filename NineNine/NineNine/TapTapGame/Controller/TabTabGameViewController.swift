@@ -4,9 +4,6 @@
 //
 //  Created by 김희은 on 2023/06/30.
 //
-//점수 0점 수정
-//점수에 따라 색깔 수정
-//오토레이아웃
 
 import UIKit
 
@@ -14,75 +11,94 @@ class TabTabGameViewController: UIViewController, GameDelegate {
     
     @IBOutlet weak var tappingCatImage: UIImageView!
     @IBOutlet weak var cheeseButton: UIButton!
+    @IBOutlet weak var scoreView: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timeBar: UIProgressView!
+    @IBOutlet weak var countDownView: UIView!
     
+    // MARK: - GameResource 관련 프로퍼티
     let gameResource: TapTapGameData = TapTapGameData()
-    var score: Int = 0
-    
-    //lazy var를 위치 옮겨서 let으로 처리할 것
-    lazy var tapCheeseImage = gameResource.cheeseButtonImageArray()
-    lazy var pushingCatImage = gameResource.pushingCatImageArray()
-    
-    lazy var pushingCat = pushingCatImage[1]
-    lazy var notPushingCat = pushingCatImage[0]
-    
+    var tapCheeseImage: [UIImage] {
+        return gameResource.cheeseButtonImageArray()
+    }
     lazy var pushedButton = tapCheeseImage[1]
     lazy var notPushedButton = tapCheeseImage[0]
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.scoreLabel.text = "\(score)"
-        tappingCatImage.image = notPushingCat
-        makeCornerRoundShape(targetView: scoreLabel, cornerRadius: 20)
-        timeTravel()
+    var pushingCatImage: [UIImage] {
+        return gameResource.pushingCatImageArray()
     }
-    
-    @IBAction func ordinaryButton() {
-        tappingCatImage.image = notPushingCat
-        cheeseButton.isHighlighted = false
-        print(cheeseButton.isHighlighted)
-    }
+    lazy var pushingCat = pushingCatImage[1]
+    lazy var notPushingCat = pushingCatImage[0]
     
     
-    @IBAction func buttonAction(_ sender: Any) {
-        cheeseButton.isHighlighted = true
-        print(cheeseButton.isHighlighted)
-        
-        if cheeseButton.isHighlighted == true {
-            tappingCatImage.image = pushingCat
-            //ordinaryButton()
+    // MARK: - Game Timer 관련 프로퍼티
+    var gameTimer: GameTimer?
+    
+    // MARK: - game score 관련 프로퍼티
+    var rank: UIColor = .systemRed
+    let highScore = DataStorage().loadHighScore(gameName: "TapTapGame")
+    var score: Int = 0 {
+        didSet {
+            let scoreBoardColor = gameResource.selectScoreBoardColor(score: score, highScore: self.highScore)
+            scoreView.backgroundColor = scoreBoardColor[0]
+            scoreLabel.textColor = scoreBoardColor[1]
+            self.rank = scoreBoardColor[2]
+            scoreLabel.text = "\(score)"
         }
     }
     
-    //탭탭 버튼 전환 구현부
+    //-----------------------------------------------------------------------------//
+    
+    // MARK: - viewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        countDownBeforeGame(countDownView: countDownView)
+        scoreLabel.text = "\(score)"
+        setupTapTapGameUI()
+        countDownGame()
+    }
+    
+    //-----------------------------------------------------------------------------//
+    
+    //MARK: - 탭탭 게임 UI 설정
+    private func setupTapTapGameUI() {
+        tappingCatImage.image = notPushingCat
+        makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
+    }
+    
+    // MARK: - 탭탭 버튼 전환 구현부
     @IBAction func buttonTouchDown(_ sender: Any) {
         self.score += 1
         self.scoreLabel.text = "\(score)"
-        buttonSelected()
-    }
-    @IBAction func buttonTouchUp(_ sender: Any) {
-        buttonNormalMode()
-    }
-
-    func buttonNormalMode() {
-        tappingCatImage.image = notPushingCat
-    }
-
-    func buttonSelected() {
         tappingCatImage.image = pushingCat
     }
-
-    func showGameResult() -> Int {
+    @IBAction func buttonTouchUp(_ sender: Any) {
+        tappingCatImage.image = notPushingCat
+    }
+    
+    // MARK: - 타이머 countDown
+    func countDownGame() {
+        gameTimer = GameTimer(controller: self, timeBar: timeBar, timeLabel: timeLabel)
+        gameTimer?.startTimer()
+    }
+   
+    // MARK: - 게임 종료 후 score 전달
+    func gameScore() -> Int {
         return score
     }
-    
-    func timeTravel() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 13.0) {
-            print("finish")
-            moveToGameResultVC(gameVC: self)
+    func gameRank() -> Int {
+        switch self.rank {
+        case .systemRed:
+            return 0
+        case .systemGreen:
+            return 1
+        case .systemBlue:
+            return 2
+        default:
+            return 3
         }
     }
-    
+
 }

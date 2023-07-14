@@ -20,23 +20,27 @@ struct BBGameResource {
     }
     
     func selectScoreBoardColor(score: Int, highScore: Int) -> [UIColor] {
-        var scoreBoardColor: [UIColor] = [.white, .white] // 0 -> backgroundColor, 1 -> textColor
+        var scoreBoardColor: [UIColor] = [.white, .white, .white] // 0 -> backgroundColor, 1 -> textColor
         switch score {
         case score where score < 40:
             let changeIndex = score <= 5 ? 0 : 1
             scoreBoardColor[changeIndex] = .systemRed
+            scoreBoardColor[2] = .systemRed
             break
         case score where score < 70:
             let changeIndex = score <= 45 ? 0 : 1
             scoreBoardColor[changeIndex] = .systemGreen
+            scoreBoardColor[2] = .systemGreen
             break
-        case score where score < 100 || score <= highScore:
+        case score where score < 100 || score < highScore:
             let changeIndex = score <= 75 ? 0 : 1
             scoreBoardColor[changeIndex] = .systemBlue
+            scoreBoardColor[2] = .systemBlue
             break
         default:
             let changeIndex = score <= highScore + 5 ? 0 : 1
             scoreBoardColor[changeIndex] = .systemPurple
+            scoreBoardColor[2] = .systemPurple
             break
         }
         return scoreBoardColor
