@@ -205,7 +205,6 @@
                                                         </constraints>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.88804519179999997" green="0.70612508060000001" blue="0.2665307522" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstItem="g4X-Fw-hEy" firstAttribute="top" secondItem="WWw-tv-i8D" secondAttribute="top" id="3ef-1d-q2y"/>
                                                     <constraint firstItem="O14-n9-tK1" firstAttribute="top" secondItem="g4X-Fw-hEy" secondAttribute="bottom" id="6qR-M0-CIM"/>
