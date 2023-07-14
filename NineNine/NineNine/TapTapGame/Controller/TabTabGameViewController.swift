@@ -22,46 +22,50 @@ class TabTabGameViewController: UIViewController, GameDelegate {
     var tapCheeseImage: [UIImage] {
         return gameResource.cheeseButtonImageArray()
     }
+    lazy var pushedButton = tapCheeseImage[1]
+    lazy var notPushedButton = tapCheeseImage[0]
+    
     var pushingCatImage: [UIImage] {
         return gameResource.pushingCatImageArray()
     }
- 
     lazy var pushingCat = pushingCatImage[1]
     lazy var notPushingCat = pushingCatImage[0]
-    
-    lazy var pushedButton = tapCheeseImage[1]
-    lazy var notPushedButton = tapCheeseImage[0]
     
     
     // MARK: - Game Timer 관련 프로퍼티
     var gameTimer: GameTimer?
     
     // MARK: - game score 관련 프로퍼티
+    var rank: UIColor = .systemRed
     let highScore = DataStorage().loadHighScore(gameName: "TapTapGame")
     var score: Int = 0 {
         didSet {
             let scoreBoardColor = gameResource.selectScoreBoardColor(score: score, highScore: self.highScore)
             scoreView.backgroundColor = scoreBoardColor[0]
             scoreLabel.textColor = scoreBoardColor[1]
+            self.rank = scoreBoardColor[2]
             scoreLabel.text = "\(score)"
         }
     }
     
+    //-----------------------------------------------------------------------------//
+    
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        countDownBeforeGame(countDownView: countDownView)
         
-        self.scoreLabel.text = "\(score)"
+        countDownBeforeGame(countDownView: countDownView)
+        scoreLabel.text = "\(score)"
+        setupTapTapGameUI()
+        countDownGame()
+    }
+    
+    //-----------------------------------------------------------------------------//
+    
+    //MARK: - 탭탭 게임 UI 설정
+    private func setupTapTapGameUI() {
         tappingCatImage.image = notPushingCat
         makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
-        
-        gameTimer = GameTimer(controller: self, timeBar: timeBar, timeLabel: timeLabel)
-        gameTimer?.startTimer()
-        
-        countDownBeforeGame(countDownView: countDownView)
-        countDownGame()
     }
     
     // MARK: - 탭탭 버튼 전환 구현부
@@ -74,18 +78,27 @@ class TabTabGameViewController: UIViewController, GameDelegate {
         tappingCatImage.image = notPushingCat
     }
     
-    
+    // MARK: - 타이머 countDown
     func countDownGame() {
         gameTimer = GameTimer(controller: self, timeBar: timeBar, timeLabel: timeLabel)
         gameTimer?.startTimer()
     }
    
+    // MARK: - 게임 종료 후 score 전달
     func gameScore() -> Int {
         return score
     }
+    func gameRank() -> Int {
+        switch self.rank {
+        case .systemRed:
+            return 0
+        case .systemGreen:
+            return 1
+        case .systemBlue:
+            return 2
+        default:
+            return 3
+        }
+    }
 
 }
-//코드 리펙토링
-
-
-//버튼 푸쉬 이미지 변경
