@@ -4,9 +4,6 @@
 //
 //  Created by 김희은 on 2023/06/30.
 //
-//점수 0점 수정
-//점수에 따라 색깔 수정
-//오토레이아웃
 
 import UIKit
 
@@ -14,10 +11,14 @@ class TabTabGameViewController: UIViewController, GameDelegate {
     
     @IBOutlet weak var tappingCatImage: UIImageView!
     @IBOutlet weak var cheeseButton: UIButton!
+    @IBOutlet weak var scoreView: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timeBar: UIProgressView!
+    @IBOutlet weak var countDownView: UIView!
     
     let gameResource: TapTapGameData = TapTapGameData()
-    var score: Int = 0
+    //var score: Int = 0
     
     //lazy var를 위치 옮겨서 let으로 처리할 것
     lazy var tapCheeseImage = gameResource.cheeseButtonImageArray()
@@ -30,19 +31,46 @@ class TabTabGameViewController: UIViewController, GameDelegate {
     lazy var notPushedButton = tapCheeseImage[0]
     
     
+    //***
+    // Game Timer 관련 프로퍼티
+    var gameTimer: GameTimer?
+    
+    // 게임 점수 관련 프로퍼티
+    let highScore = DataStorage().loadHighScore(gameName: "TapTapGame")
+    var score: Int = 0 {
+        didSet {
+            let scoreBoardColor = gameResource.selectScoreBoardColor(score: score, highScore: self.highScore)
+            scoreView.backgroundColor = scoreBoardColor[0]
+            scoreLabel.textColor = scoreBoardColor[1]
+            scoreLabel.text = "\(score)"
+        }
+    }
+    
+    //====================================================//
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        countDownBeforeGame(countDownView: countDownView)
+        
         self.scoreLabel.text = "\(score)"
         tappingCatImage.image = notPushingCat
-        makeCornerRoundShape(targetView: scoreLabel, cornerRadius: 20)
-        timeTravel()
+        makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
+        
+        gameTimer = GameTimer(controller: self, timeBar: timeBar, timeLabel: timeLabel)
+        gameTimer?.startTimer()
+        
+        countDownBeforeGame(countDownView: countDownView)
+        countDownGame()
     }
     
     @IBAction func ordinaryButton() {
         tappingCatImage.image = notPushingCat
         cheeseButton.isHighlighted = false
         print(cheeseButton.isHighlighted)
+        
+        
     }
     
     
@@ -74,15 +102,17 @@ class TabTabGameViewController: UIViewController, GameDelegate {
         tappingCatImage.image = pushingCat
     }
 
-    func showGameResult() -> Int {
+    
+    func countDownGame() {
+        gameTimer = GameTimer(controller: self, timeBar: timeBar, timeLabel: timeLabel)
+        gameTimer?.startTimer()
+    }
+   
+    func gameScore() -> Int {
         return score
     }
     
-    func timeTravel() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 13.0) {
-            print("finish")
-            moveToGameResultVC(gameVC: self)
-        }
-    }
     
 }
+//오토레이아웃 - 수정 요망
+//코드 리펙토링

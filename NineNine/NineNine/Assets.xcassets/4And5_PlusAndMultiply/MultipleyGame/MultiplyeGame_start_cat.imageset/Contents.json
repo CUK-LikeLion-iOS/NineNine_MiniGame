@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "곱하기를하자고양이캐릭터.png",
+      "filename" : "multiply_game_cat_image.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "곱하기를하자고양이캐릭터@2x.png",
+      "filename" : "multiply_game_cat_image@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "곱하기를하자고양이캐릭터@3x.png",
+      "filename" : "multiply_game_cat_image@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

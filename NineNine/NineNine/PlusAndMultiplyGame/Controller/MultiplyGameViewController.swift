@@ -14,8 +14,19 @@ class MultiplyGameViewController: UIViewController, GameDelegate {
     private var userInput : Int?
     private var inputCount :Int = 0
     private var resultNum : Int?
-    private var score : Int = 0
     let multiplyResources = MultiplyAndPlusGameData()
+    let highScore = DataStorage().loadHighScore(gameName: "MultiplyGame")
+    var rank: UIColor = .systemRed
+    var score: Int = 0 {
+        didSet {
+            let scoreBoardColor = multiplyResources.selectScoreBoardColor(score: score, highScore: self.highScore)
+            scoreView.backgroundColor = scoreBoardColor[0]
+            scoreLabel.textColor = scoreBoardColor[1]
+            self.rank = scoreBoardColor[2]
+            scoreLabel.text = "\(score)"
+        }
+    }
+    
     
     @IBOutlet private weak var quizView: UIStackView!
     @IBOutlet private weak var timeLabel: UILabel!
@@ -37,8 +48,14 @@ class MultiplyGameViewController: UIViewController, GameDelegate {
         case 0...9:
             if inputCount == 0 || resultNum! < 10
             {
-                userInput = sender.tag
-                inputCount += 1
+                if (resultNum! > 10 && sender.tag == 0)
+                {
+                    break;
+                }
+                else {
+                    userInput = sender.tag
+                    inputCount += 1
+                }
             }
             // 결과가 10 이상인 것은 두번의 입력 필요
             else if resultNum! >= 10 && inputCount == 1 {
@@ -110,7 +127,20 @@ class MultiplyGameViewController: UIViewController, GameDelegate {
             self.quizView.isHidden = false
         }
     }
-    func showGameResult() -> Int {
+    func gameScore() -> Int {
         return score
+    }
+    
+    func gameRank() -> Int {
+        switch self.rank {
+        case .systemRed:
+            return 0
+        case .systemGreen:
+            return 1
+        case .systemBlue:
+            return 2
+        default:
+            return 3
+        }
     }
 }

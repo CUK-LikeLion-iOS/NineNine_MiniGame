@@ -17,32 +17,34 @@ class BBGameViewController: UIViewController, GameDelegate {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timeBar: UIProgressView!
     
-    let gameResource: BBGameData = BBGameData()
-    var gameTimer: GameTimer?
-    var swipingCatImageList: [UIImage] {
-            return gameResource.swipingCatImageArray()
-    }
+
+    // Game Resource 관련 프로퍼티
+    let gameResource: BBGameResource = BBGameResource()
     var fishThumbImage: UIImage {
         return gameResource.fishThumbImage()
     }
+    var swipingCatImageList: [UIImage] {
+        return gameResource.swipingCatImageArray()
+    }
+    
+    // Game Timer 관련 프로퍼티
+    var gameTimer: GameTimer?
+    
+    // 게임 점수 관련 프로퍼티
+    let highScore = DataStorage().loadHighScore(gameName: "BBGame")
+    var rank: UIColor = .systemRed
     var score: Int = 0 {
-        didSet {    // 점수와 레이블의 텍스트를 동기화
-            scoreLabel.text = String(score)
-            if (score < 40) {
-                scoreLabel.textColor = .systemBlue
-            }
-            else if (score < 70) {
-                scoreLabel.textColor = .systemCyan
-            }
-            else if (score < 100) {
-                scoreLabel.textColor = .systemGreen
-            }
-            else {
-                scoreLabel.textColor = .systemPink
-            }
+        didSet {
+            let scoreBoardColor = gameResource.selectScoreBoardColor(score: score, highScore: self.highScore)
+            scoreView.backgroundColor = scoreBoardColor[0]
+            scoreLabel.textColor = scoreBoardColor[1]
+            self.rank = scoreBoardColor[2]
+            scoreLabel.text = "\(score)"
         }
     }
 
+    /* -------------------------------------------------------------------------- */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -60,13 +62,25 @@ class BBGameViewController: UIViewController, GameDelegate {
         if (catImage.image != image) {
             catImage.image = image
             score += 1
-            scoreLabel.text = "\(score)"
         }
     }
     
     // BBGameProtocol 필수 구현 메서드
-    func showGameResult() -> Int {
+    func gameScore() -> Int {
         return score
+    }
+    
+    func gameRank() -> Int {
+        switch self.rank {
+        case .systemRed:
+            return 0
+        case .systemGreen:
+            return 1
+        case .systemBlue:
+            return 2
+        default:
+            return 3
+        }
     }
     
     func countDownGame() {
