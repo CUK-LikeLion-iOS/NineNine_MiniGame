@@ -11,13 +11,13 @@ class GameResultViewController: UIViewController {
 
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var loadingView: UIView!
-    @IBOutlet weak var gameImageView: UIImageView!
+    @IBOutlet weak var scoreBoardView: UIImageView!
 
     // Delegate 관련 프로퍼티
     weak var gameDelegate: GameDelegate?
     weak var selectedGameDelegate: SelectedGameDelegate?
     var gameScore: Int {
-        guard let score = gameDelegate?.showGameResult() else {
+        guard let score = gameDelegate?.gameScore() else {
             print("Error: gameDelegate Missing!!")
             moveBackToStartingVC(vc: self)
             return -1
@@ -34,6 +34,15 @@ class GameResultViewController: UIViewController {
         
         return gameNumber
     }
+    var rank: Int {
+        guard let gameRank = gameDelegate?.gameRank?() else {
+            print("Error: gameDelegate Missing!!")
+            moveBackToStartingVC(vc: self)
+            return 0
+        }
+
+        return gameRank
+    }
 
     // DB 관련 프로퍼티
     let db = DataStorage()
@@ -43,8 +52,11 @@ class GameResultViewController: UIViewController {
     var selectedGameTitle: String {
         return gameResource.gameTitleList()[selectedGameNumber]
     }
-    var gameInformationList: [(String, String, UIImage)] {
+    var gameInformationList: [(String, String)] {
         return gameResource.gameInformation()
+    }
+    var gameRankImageList: [UIImage] {
+        return gameResource.gameRankImages()
     }
 
     /* -------------------------------------------------------------------------- */
@@ -54,11 +66,7 @@ class GameResultViewController: UIViewController {
         
         loadingView.isHidden = true
         score.text = "\(gameScore)"
-        renderSelectedGameImage()
-    }
-    
-    func renderSelectedGameImage() {
-        gameImageView.image = gameInformationList[selectedGameNumber].2
+        scoreBoardView.image = gameRankImageList[self.rank]
     }
     
     @IBAction func moveBackToStartBtnPressed(_ sender: UIButton) {

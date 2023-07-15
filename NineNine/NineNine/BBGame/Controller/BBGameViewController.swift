@@ -32,11 +32,13 @@ class BBGameViewController: UIViewController, GameDelegate {
     
     // 게임 점수 관련 프로퍼티
     let highScore = DataStorage().loadHighScore(gameName: "BBGame")
+    var rank: UIColor = .systemRed
     var score: Int = 0 {
         didSet {
             let scoreBoardColor = gameResource.selectScoreBoardColor(score: score, highScore: self.highScore)
             scoreView.backgroundColor = scoreBoardColor[0]
             scoreLabel.textColor = scoreBoardColor[1]
+            self.rank = scoreBoardColor[2]
             scoreLabel.text = "\(score)"
         }
     }
@@ -47,8 +49,7 @@ class BBGameViewController: UIViewController, GameDelegate {
         super.viewDidLoad()
 
         slider.setThumbImage(fishThumbImage, for: .normal) // 슬라이더의 thumb가 터치되지 않았을 때
-        slider.setThumbImage(fishThumbImage, for: .highlighted) // thumb가 터치되었을 때
-        
+        slider.setThumbImage(fishThumbImage, for: .highlighted)
         makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
         countDownBeforeGame(countDownView: countDownView)
         countDownGame()
@@ -64,8 +65,21 @@ class BBGameViewController: UIViewController, GameDelegate {
     }
     
     // BBGameProtocol 필수 구현 메서드
-    func showGameResult() -> Int {
+    func gameScore() -> Int {
         return score
+    }
+    
+    func gameRank() -> Int {
+        switch self.rank {
+        case .systemRed:
+            return 0
+        case .systemGreen:
+            return 1
+        case .systemBlue:
+            return 2
+        default:
+            return 3
+        }
     }
     
     func countDownGame() {
@@ -73,3 +87,4 @@ class BBGameViewController: UIViewController, GameDelegate {
         gameTimer?.startTimer()
     }
 }
+
