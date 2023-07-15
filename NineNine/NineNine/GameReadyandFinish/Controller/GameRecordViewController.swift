@@ -73,6 +73,13 @@ class GameRecordViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        if let selectedIndexPath = gameRecordTableView.indexPathForSelectedRow {
+            gameRecordTableView.deselectRow(at: selectedIndexPath, animated: true)
+        }
+    }
+    
     func makeViewRoundShape(cornerRadius: CGFloat) {
         gameRecordHeadView
             .layer.cornerRadius = cornerRadius

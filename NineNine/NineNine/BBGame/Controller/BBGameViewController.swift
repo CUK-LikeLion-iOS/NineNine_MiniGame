@@ -49,8 +49,7 @@ class BBGameViewController: UIViewController, GameDelegate {
         super.viewDidLoad()
 
         slider.setThumbImage(fishThumbImage, for: .normal) // 슬라이더의 thumb가 터치되지 않았을 때
-        slider.setThumbImage(fishThumbImage, for: .highlighted) // thumb가 터치되었을 때
-        
+        slider.setThumbImage(fishThumbImage, for: .highlighted)
         makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
         countDownBeforeGame(countDownView: countDownView)
         countDownGame()
@@ -88,3 +87,4 @@ class BBGameViewController: UIViewController, GameDelegate {
         gameTimer?.startTimer()
     }
 }
+

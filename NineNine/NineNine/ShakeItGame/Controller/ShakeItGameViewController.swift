@@ -13,8 +13,8 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var catImage: UIImageView!
     @IBOutlet weak var scoreView: UIView!
-    @IBOutlet weak var countdownView: UIView!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var countdownView: UIView!
     @IBOutlet weak var timeBar: UIProgressView!
     
     let db = DataStorage()
