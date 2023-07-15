@@ -37,7 +37,7 @@ class TabTabGameViewController: UIViewController, GameDelegate {
     
     // MARK: - game score 관련 프로퍼티
     var rank: UIColor = .systemRed
-    let highScore = DataStorage().loadHighScore(gameName: "TapTapGame")
+    let highScore = DataStorage().loadHighScore(gameName: "TabTabGame")
     var score: Int = 0 {
         didSet {
             let scoreBoardColor = gameResource.selectScoreBoardColor(score: score, highScore: self.highScore)

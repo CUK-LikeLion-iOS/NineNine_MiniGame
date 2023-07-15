@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct TapTapGameData {
+struct TabTabGameData {
     private let cheeseButtonImage:[UIImage] = [#imageLiteral(resourceName: "TapTapGame_cheesebtn"), #imageLiteral(resourceName: "TapTapGame_cheesebtn_pushed")]
     private let pushingCatImages:[UIImage] = [#imageLiteral(resourceName: "TapTapGame_cat_mini_before_push"), #imageLiteral(resourceName: "TapTapGame_cat_mini_after_push")]
     
@@ -32,7 +32,7 @@ struct TapTapGameData {
             scoreBoardColor[changeIndex] = .systemGreen
             scoreBoardColor[2] = .systemGreen
             break
-        case score where score < 110 || score < highScore:
+        case score where score < 100 || score < highScore:
             let changeIndex = score <= 80 ? 0 : 1
             scoreBoardColor[changeIndex] = .systemBlue
             scoreBoardColor[2] = .systemBlue

@@ -19,27 +19,27 @@
         <scene sceneID="fhM-w0-Xgs">
             <objects>
                 <viewController storyboardIdentifier="TabTabGameViewController" id="tYP-qa-e1C" customClass="TabTabGameViewController" customModule="NineNine" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="vGp-Pm-RhH">
+                    <view key="view" contentMode="scaleToFill" id="vGp-Pm-RhH">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="en7-Z9-h03">
-                                <rect key="frame" x="0.0" y="59" width="393" height="769"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="en7-Z9-h03">
+                                <rect key="frame" x="0.0" y="59" width="393" height="768"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FpQ-hV-PNn" userLabel="First View">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="215"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FpQ-hV-PNn" userLabel="First View">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="214"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bjo-v4-PMB">
-                                                <rect key="frame" x="0.0" y="0.0" width="393.33333333333331" height="265.33333333333331"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bjo-v4-PMB">
+                                                <rect key="frame" x="0.0" y="0.0" width="393.33333333333331" height="264.33333333333331"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KNY-NW-s9N" userLabel="First TimeBar View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="393.33333333333331" height="132.66666666666666"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNY-NW-s9N" userLabel="First TimeBar View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="393.33333333333331" height="132.33333333333334"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XXO-os-mXk">
-                                                                <rect key="frame" x="0.0" y="0.0" width="393.33333333333331" height="132.66666666666666"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XXO-os-mXk">
+                                                                <rect key="frame" x="0.0" y="0.0" width="393.33333333333331" height="132.33333333333334"/>
                                                                 <subviews>
-                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nOI-Df-OtB" userLabel="Time Bar View">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="393.33333333333331" height="66.333333333333329"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOI-Df-OtB" userLabel="Time Bar View">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="393.33333333333331" height="66"/>
                                                                         <subviews>
                                                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="Khe-mb-X2K">
                                                                                 <rect key="frame" x="70.000000000000014" y="30" width="253.33333333333337" height="25"/>
@@ -64,10 +64,10 @@
                                                                             <constraint firstAttribute="trailing" secondItem="Khe-mb-X2K" secondAttribute="trailing" constant="70" id="ZZs-c8-mLu"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wqR-vu-6Nc">
-                                                                        <rect key="frame" x="0.0" y="66.333333333333343" width="393.33333333333331" height="66.333333333333343"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqR-vu-6Nc">
+                                                                        <rect key="frame" x="0.0" y="66" width="393.33333333333331" height="66.333333333333314"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieE-N5-jul">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieE-N5-jul">
                                                                                 <rect key="frame" x="146.33333333333334" y="11" width="101" height="44"/>
                                                                                 <fontDescription key="fontDescription" name="NanumGothicOTFExtraBold" family="NanumGothicOTF" pointSize="40"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -89,19 +89,19 @@
                                                             <constraint firstAttribute="trailing" secondItem="XXO-os-mXk" secondAttribute="trailing" id="xVI-Zn-Sdu"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cti-pE-dsk" userLabel="Second Score View">
-                                                        <rect key="frame" x="0.0" y="132.66666666666669" width="393.33333333333331" height="132.66666666666669"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cti-pE-dsk" userLabel="Second Score View">
+                                                        <rect key="frame" x="0.0" y="132.33333333333334" width="393.33333333333331" height="132.00000000000003"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eFB-Xi-rea">
-                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="128.66666666666666"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eFB-Xi-rea">
+                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="128"/>
                                                                 <subviews>
-                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1To-sc-Ksd">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="64.333333333333329"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1To-sc-Ksd">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="64"/>
                                                                         <subviews>
-                                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ZK-bX-oNd" userLabel="Score View">
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ZK-bX-oNd" userLabel="Score View">
                                                                                 <rect key="frame" x="119.66666666666669" y="0.0" width="154" height="64"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKz-eF-KG3">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKz-eF-KG3">
                                                                                         <rect key="frame" x="65.666666666666671" y="11.333333333333314" width="22.666666666666671" height="41"/>
                                                                                         <fontDescription key="fontDescription" name="NanumGothicOTFExtraBold" family="NanumGothicOTF" pointSize="37"/>
                                                                                         <nil key="textColor"/>
@@ -122,8 +122,8 @@
                                                                             <constraint firstAttribute="bottom" secondItem="2ZK-bX-oNd" secondAttribute="bottom" id="hGU-Zs-Wjc"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X0C-gt-pVY">
-                                                                        <rect key="frame" x="36.666666666666657" y="64.333333333333343" width="320" height="64.333333333333343"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X0C-gt-pVY">
+                                                                        <rect key="frame" x="36.666666666666657" y="64" width="320" height="64"/>
                                                                     </view>
                                                                 </subviews>
                                                                 <constraints>
@@ -152,8 +152,8 @@
                                             <constraint firstAttribute="bottom" secondItem="bjo-v4-PMB" secondAttribute="bottom" constant="-50.333333333333343" id="utT-E8-Obj"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rhm-ft-01s" userLabel="Second View">
-                                        <rect key="frame" x="0.0" y="214.99999999999997" width="393" height="370.33333333333326"/>
+                                    <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhm-ft-01s" userLabel="Second View">
+                                        <rect key="frame" x="0.0" y="213.99999999999997" width="393" height="370.33333333333326"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WWw-tv-i8D">
                                                 <rect key="frame" x="0.0" y="-3" width="393" height="375"/>
@@ -210,8 +210,8 @@
                                             <constraint firstAttribute="trailing" secondItem="WWw-tv-i8D" secondAttribute="trailing" id="dXY-ur-uPy"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cem-56-URw" userLabel="Last View">
-                                        <rect key="frame" x="0.0" y="585.33333333333337" width="393" height="183.66666666666663"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cem-56-URw" userLabel="Last View">
+                                        <rect key="frame" x="0.0" y="584.33333333333337" width="393" height="183.66666666666663"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="98B-jr-3nY">
                                                 <rect key="frame" x="0.0" y="-0.33333333333337123" width="393" height="194"/>
@@ -254,10 +254,10 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iUm-7t-N58" userLabel="Count Down View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iUm-7t-N58" userLabel="Count Down View">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mss-0T-MeI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mss-0T-MeI">
                                         <rect key="frame" x="153.33333333333334" y="348" width="86.333333333333343" height="156.33333333333337"/>
                                         <fontDescription key="fontDescription" name="NanumGothicOTFExtraBold" family="NanumGothicOTF" pointSize="142"/>
                                         <color key="textColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
