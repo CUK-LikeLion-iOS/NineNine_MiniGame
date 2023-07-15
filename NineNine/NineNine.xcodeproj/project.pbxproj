@@ -48,7 +48,6 @@
 		CCEDDA112A4F41AD008084C5 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CCEDDA102A4F41AD008084C5 /* FirebaseFirestoreSwift */; };
 		CCEDDA132A52BFFE008084C5 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEDDA122A52BFFE008084C5 /* ShowAlert.swift */; };
 		FF20B2B82A57E4420031535C /* MultiplyAndPlusGameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20B2B72A57E4420031535C /* MultiplyAndPlusGameData.swift */; };
-		FF5B31DC2A600A1D0030E5FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF5B31DB2A600A1D0030E5FB /* GoogleService-Info.plist */; };
 		FF6B4E052A50675000E3EB36 /* PlusGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF6B4E042A50675000E3EB36 /* PlusGame.storyboard */; };
 		FF6B4E072A50676600E3EB36 /* PlusGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6B4E062A50676600E3EB36 /* PlusGameViewController.swift */; };
 		FF910BD92A4D525800B231E9 /* MultiplyGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF910BD82A4D525800B231E9 /* MultiplyGame.storyboard */; };
@@ -97,7 +96,6 @@
 		CCEC33902A46C7C7006D2109 /* GameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDelegate.swift; sourceTree = "<group>"; };
 		CCEDDA122A52BFFE008084C5 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 		FF20B2B72A57E4420031535C /* MultiplyAndPlusGameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplyAndPlusGameData.swift; sourceTree = "<group>"; };
-		FF5B31DB2A600A1D0030E5FB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF6B4E042A50675000E3EB36 /* PlusGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = PlusGame.storyboard; path = ../Model/PlusGame.storyboard; sourceTree = "<group>"; };
 		FF6B4E062A50676600E3EB36 /* PlusGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusGameViewController.swift; sourceTree = "<group>"; };
 		FF910BD82A4D525800B231E9 /* MultiplyGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MultiplyGame.storyboard; sourceTree = "<group>"; };
@@ -671,14 +669,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YWNQ4RZBTS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NineNine/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NineNine;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.family-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -707,14 +708,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N2225VQ3TM;
+				DEVELOPMENT_TEAM = YWNQ4RZBTS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NineNine/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NineNine;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.family-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -726,7 +730,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.likelioncuk.www.NineNine;
+				PRODUCT_BUNDLE_IDENTIFIER = com.likelion.www.NineNine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
