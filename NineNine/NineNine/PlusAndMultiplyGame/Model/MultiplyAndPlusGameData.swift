@@ -7,6 +7,7 @@
 
 import UIKit
 struct MultiplyAndPlusGameData {
+    
     private let numberImage : UIImage = #imageLiteral(resourceName: "전체숫자판")
     private let multiplyHomeImage : UIImage = #imageLiteral(resourceName: "MultiplyeGame_start_cat")
     private let plusHomeImage : UIImage = #imageLiteral(resourceName: "PlusGame_start_cat")
@@ -20,7 +21,7 @@ struct MultiplyAndPlusGameData {
     func answerImage () -> UIImage {
         return numberImage
     }
-
+    
     func selectScoreBoardColor(score: Int, highScore: Int) -> [UIColor] {
         var scoreBoardColor: [UIColor] = [.white, .white, .white]
         switch score {
