@@ -172,10 +172,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P1A-Uu-4KN">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLV-co-KtP">
-                                        <rect key="frame" x="144.5" y="245.5" width="86.5" height="156.5"/>
+                                        <rect key="frame" x="144.5" y="255.5" width="86.5" height="156.5"/>
                                         <fontDescription key="fontDescription" name="NanumGothicOTFExtraBold" family="NanumGothicOTF" pointSize="142"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -195,13 +195,14 @@
                             <constraint firstItem="wqU-nn-Oym" firstAttribute="top" secondItem="z7S-tN-JJc" secondAttribute="top" id="9a4-zm-Lu0"/>
                             <constraint firstItem="P1A-Uu-4KN" firstAttribute="leading" secondItem="z7S-tN-JJc" secondAttribute="leading" id="BIc-NP-nFj"/>
                             <constraint firstItem="z7S-tN-JJc" firstAttribute="bottom" secondItem="wqU-nn-Oym" secondAttribute="bottom" id="G6a-je-t6X"/>
-                            <constraint firstItem="z7S-tN-JJc" firstAttribute="bottom" secondItem="P1A-Uu-4KN" secondAttribute="bottom" id="Lh5-Er-48U"/>
-                            <constraint firstItem="P1A-Uu-4KN" firstAttribute="top" secondItem="z7S-tN-JJc" secondAttribute="top" id="W1p-4W-UUd"/>
+                            <constraint firstAttribute="bottom" secondItem="P1A-Uu-4KN" secondAttribute="bottom" id="Lh5-Er-48U"/>
+                            <constraint firstItem="P1A-Uu-4KN" firstAttribute="top" secondItem="7ii-ge-tqJ" secondAttribute="top" id="W1p-4W-UUd"/>
                             <constraint firstItem="wqU-nn-Oym" firstAttribute="leading" secondItem="z7S-tN-JJc" secondAttribute="leading" id="WTm-UV-jtk"/>
                             <constraint firstItem="z7S-tN-JJc" firstAttribute="trailing" secondItem="wqU-nn-Oym" secondAttribute="trailing" id="Zfe-Tt-mmk"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="catImage" destination="Ob6-40-mV5" id="TXT-8x-nrc"/>
                         <outlet property="countdownView" destination="P1A-Uu-4KN" id="Efq-SQ-A52"/>
                         <outlet property="messageLabel" destination="gXB-iA-UA6" id="ntv-i6-6Wq"/>
                         <outlet property="scoreLabel" destination="FR4-sg-MoK" id="UeP-sU-4NY"/>

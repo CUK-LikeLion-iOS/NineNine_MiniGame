@@ -126,7 +126,7 @@ class MultiplyGameViewController: UIViewController, GameDelegate {
         makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
         userInputLabel.layer.masksToBounds = true
         userInputLabel.layer.cornerRadius = 20
-        homeImage.image = self.multiplyResources.plusCatImage()
+        homeImage.image = self.multiplyResources.multiplyCatImage()
         quizImage.image = self.multiplyResources.answerImage()
         self.quizView.isHidden = true
         gameTimer = GameTimer(controller: self, timeBar: timeBar, timeLabel: timeLabel)
