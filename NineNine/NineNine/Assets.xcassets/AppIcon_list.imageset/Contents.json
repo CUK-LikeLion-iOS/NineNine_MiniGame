@@ -1,17 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "great_score_board.png",
+      "filename" : "제목_없는_아트워크 48.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "great_score_board@2x.png",
+      "filename" : "제목_없는_아트워크 47.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "great_score_board@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

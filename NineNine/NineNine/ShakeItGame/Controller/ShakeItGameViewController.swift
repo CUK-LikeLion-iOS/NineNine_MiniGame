@@ -17,8 +17,10 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timeBar: UIProgressView!
     
+    let db = DataStorage()
     var gameTimer: GameTimer?
     let shakeitResources = ShakeItGameData()
+    var rank: UIColor = .systemRed
     var readyCatImage: UIImage {
         get {
             return shakeitResources.readyCatImage()
@@ -29,11 +31,17 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
             return shakeitResources.shakingCatImage()
         }
     }
+    var highScore: Int {
+        return db.loadHighScore(gameName: "ShakeItGame")
+    }
     
     var score: Int = 0 {
         didSet {    // 점수와 레이블의 텍스트를 동기화
+            let scoreBoardColor = shakeitResources.selectScoreBoardColor(score: score, highScore: self.highScore)
             scoreLabel.text = String(score)
-            scoreLabel.textColor = shakeitResources.selectScoreBoardColor(score: score)
+            scoreView.backgroundColor = scoreBoardColor[0]
+            scoreLabel.textColor = scoreBoardColor[1]
+            self.rank = scoreBoardColor[2]
         }
     }
     
@@ -54,18 +62,20 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
         makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
         countDownBeforeGame(countDownView: countdownView)
         
+        shakingHaptic = UIImpactFeedbackGenerator(style: .heavy)
+        
         gameTimer = GameTimer(controller: self, timeBar: timeBar, timeLabel: timeLabel)
         gameTimer?.startTimer()
-        shakingHaptic = UIImpactFeedbackGenerator(style: .heavy)
-        startGameAfter3seconds()
+        startMotionManagerAfter3seconds()
+        endMotionManagerAfter13seconds()
     }
     
     // 매 0.1초마다 기울임 검사
     func checkTilt() {
-        guard motionManager.isDeviceMotionAvailable else { return }
-        motionManager?.deviceMotionUpdateInterval = 0.1
+        guard self.motionManager.isDeviceMotionAvailable else { return }
+        self.motionManager?.deviceMotionUpdateInterval = 0.1
         
-        motionManager.startDeviceMotionUpdates(to: .main) { [weak self] (motion, error) in
+        self.motionManager.startDeviceMotionUpdates(to: .main) { [weak self] (motion, error) in
             guard let self = self else { return }
             guard let motion = motion else { return }
             
@@ -87,21 +97,33 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
         }
     }
     
-    func timeTravel() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 13.0) {
-            self.motionManager.stopDeviceMotionUpdates()
-            moveToGameResultVC(gameVC: self)
-        }
-    }
-    
-    func startGameAfter3seconds() {
+    func startMotionManagerAfter3seconds() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.motionManager = CMMotionManager()
             self.checkTilt()
         }
     }
-
-    func showGameResult() -> Int {
+    
+    func endMotionManagerAfter13seconds() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 13.0) {
+            self.motionManager.stopDeviceMotionUpdates()
+        }
+    }
+    
+    func gameScore() -> Int {
         return score
+    }
+    
+    func gameRank() -> Int {
+        switch self.rank {
+        case .systemRed:
+            return 0
+        case .systemGreen:
+            return 1
+        case .systemBlue:
+            return 2
+        default:
+            return 3
+        }
     }
 }

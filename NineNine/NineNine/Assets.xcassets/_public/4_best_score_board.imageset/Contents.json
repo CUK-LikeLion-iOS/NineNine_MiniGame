@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "best_score_board.png",
+      "filename" : "best_scoreboard.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "best_score_board@2x.png",
+      "filename" : "best_scoreboard@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "best_score_board@3x.png",
+      "filename" : "best_scoreboard@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
