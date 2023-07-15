@@ -10,7 +10,6 @@ import UIKit
 class TabTabGameViewController: UIViewController, GameDelegate {
     
     @IBOutlet weak var tappingCatImage: UIImageView!
-    @IBOutlet weak var cheeseButton: UIButton!
     @IBOutlet weak var scoreView: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -18,7 +17,7 @@ class TabTabGameViewController: UIViewController, GameDelegate {
     @IBOutlet weak var countDownView: UIView!
     
     // MARK: - GameResource 관련 프로퍼티
-    let gameResource: TapTapGameData = TapTapGameData()
+    let gameResource: TabTabGameData = TabTabGameData()
     var tapCheeseImage: [UIImage] {
         return gameResource.cheeseButtonImageArray()
     }
