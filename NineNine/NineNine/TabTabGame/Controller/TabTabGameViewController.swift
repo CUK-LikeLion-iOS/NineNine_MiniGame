@@ -15,7 +15,8 @@ class TabTabGameViewController: UIViewController, GameDelegate {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timeBar: UIProgressView!
     @IBOutlet weak var countDownView: UIView!
-    
+    @IBOutlet weak var tapCheeseImageVIew: UIImageView!
+
     // MARK: - GameResource 관련 프로퍼티
     let gameResource: TabTabGameData = TabTabGameData()
     var tapCheeseImage: [UIImage] {
@@ -64,6 +65,7 @@ class TabTabGameViewController: UIViewController, GameDelegate {
     //MARK: - 탭탭 게임 UI 설정
     private func setupTapTapGameUI() {
         tappingCatImage.image = notPushingCat
+        tapCheeseImageVIew.image = notPushedButton
         makeCornerRoundShape(targetView: scoreView, cornerRadius: 20)
     }
     
@@ -72,9 +74,11 @@ class TabTabGameViewController: UIViewController, GameDelegate {
         self.score += 1
         self.scoreLabel.text = "\(score)"
         tappingCatImage.image = pushingCat
+        tapCheeseImageVIew.image = pushedButton
     }
     @IBAction func buttonTouchUp(_ sender: Any) {
         tappingCatImage.image = notPushingCat
+        tapCheeseImageVIew.image = notPushedButton
     }
     
     // MARK: - 타이머 countDown

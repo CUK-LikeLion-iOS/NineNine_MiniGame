@@ -92,6 +92,8 @@ class PlusGameViewController: UIViewController, GameDelegate {
             userInput = nil
             score += 1
             scoreLabel.text = "\(score)"
+        } else {
+            userInput = nil
         }
         
     }
