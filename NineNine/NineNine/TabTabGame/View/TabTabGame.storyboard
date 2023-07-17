@@ -255,6 +255,7 @@
                         <outlet property="countDownView" destination="zrY-g8-v8P" id="99V-e7-g2h"/>
                         <outlet property="scoreLabel" destination="wrD-vp-XfV" id="byC-hS-UFG"/>
                         <outlet property="scoreView" destination="9y3-xG-gDZ" id="WP0-wm-RLE"/>
+                        <outlet property="tapCheeseImageVIew" destination="zVB-Wt-w3r" id="ydw-pa-hG2"/>
                         <outlet property="tappingCatImage" destination="0f6-2a-7lg" id="ImG-KK-HgL"/>
                         <outlet property="timeBar" destination="D8M-71-6Wp" id="ngL-wi-pHR"/>
                         <outlet property="timeLabel" destination="xye-5U-Egk" id="B4t-kV-7UT"/>
