@@ -10,7 +10,6 @@
 		97F5FE432A4ED9EF0096FC3F /* TabTabGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F5FE422A4ED9EF0096FC3F /* TabTabGameViewController.swift */; };
 		97F5FE452A4EDA050096FC3F /* TabTabGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97F5FE442A4EDA050096FC3F /* TabTabGame.storyboard */; };
 		97F5FE472A552DE00096FC3F /* TabTabGameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F5FE462A552DE00096FC3F /* TabTabGameData.swift */; };
-		ADABF6EE2A51449000F8745D /* ShakeItModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABF6ED2A51449000F8745D /* ShakeItModel.swift */; };
 		CC0362CA2A4A169F00A308C1 /* SelectedGameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0362C92A4A169F00A308C1 /* SelectedGameDelegate.swift */; };
 		CC0362CD2A4A1BDA00A308C1 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0362CC2A4A1BDA00A308C1 /* GameData.swift */; };
 		CC0362CF2A4A2AF800A308C1 /* ShakeItGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC0362CE2A4A2AF800A308C1 /* ShakeItGame.storyboard */; };
@@ -18,6 +17,7 @@
 		CC4B33BC2A5ADE6A00E45568 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4B33BB2A5ADE6A00E45568 /* DataStorage.swift */; };
 		CC4E09E62A1931DC00B7ED08 /* NanumGothicExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC4E09E52A1931DC00B7ED08 /* NanumGothicExtraBold.otf */; };
 		CC5BC9B82AEEC15100DAA585 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC5BC9B72AEEC15100DAA585 /* GoogleService-Info.plist */; };
+		CC5BC9C22AEEC79500DAA585 /* ShakeItModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5BC9C12AEEC79500DAA585 /* ShakeItModel.swift */; };
 		CC5D8DE12A1928AA0089A850 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5D8DE02A1928AA0089A850 /* AppDelegate.swift */; };
 		CC5D8DE32A1928AA0089A850 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5D8DE22A1928AA0089A850 /* SceneDelegate.swift */; };
 		CC5D8DE52A1928AA0089A850 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5D8DE42A1928AA0089A850 /* HomeViewController.swift */; };
@@ -57,7 +57,6 @@
 		97F5FE422A4ED9EF0096FC3F /* TabTabGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTabGameViewController.swift; sourceTree = "<group>"; };
 		97F5FE442A4EDA050096FC3F /* TabTabGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabTabGame.storyboard; sourceTree = "<group>"; };
 		97F5FE462A552DE00096FC3F /* TabTabGameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTabGameData.swift; sourceTree = "<group>"; };
-		ADABF6ED2A51449000F8745D /* ShakeItModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShakeItModel.swift; path = NineNine/ShakeItGame/Model/ShakeItModel.swift; sourceTree = SOURCE_ROOT; };
 		CC0362C92A4A169F00A308C1 /* SelectedGameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedGameDelegate.swift; sourceTree = "<group>"; };
 		CC0362CC2A4A1BDA00A308C1 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		CC0362CE2A4A2AF800A308C1 /* ShakeItGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShakeItGame.storyboard; sourceTree = "<group>"; };
@@ -65,6 +64,7 @@
 		CC4B33BB2A5ADE6A00E45568 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		CC4E09E52A1931DC00B7ED08 /* NanumGothicExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicExtraBold.otf; sourceTree = "<group>"; };
 		CC5BC9B72AEEC15100DAA585 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CC5BC9C12AEEC79500DAA585 /* ShakeItModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeItModel.swift; sourceTree = "<group>"; };
 		CC5D8DDD2A1928AA0089A850 /* NineNine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NineNine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC5D8DE02A1928AA0089A850 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC5D8DE22A1928AA0089A850 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -370,7 +370,7 @@
 		CC637CD02A4A0C690003DA93 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				ADABF6ED2A51449000F8745D /* ShakeItModel.swift */,
+				CC5BC9C12AEEC79500DAA585 /* ShakeItModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -549,9 +549,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCD55F1D2A44AD5600AD3206 /* CustomizeView.swift in Sources */,
-				ADABF6EE2A51449000F8745D /* ShakeItModel.swift in Sources */,
 				CCD55F1F2A44AF4900AD3206 /* StackNavigation.swift in Sources */,
 				CC637CCC2A4A0BF80003DA93 /* BBGameData.swift in Sources */,
+				CC5BC9C22AEEC79500DAA585 /* ShakeItModel.swift in Sources */,
 				CCEDDA132A52BFFE008084C5 /* ShowAlert.swift in Sources */,
 				CC5D8DE52A1928AA0089A850 /* HomeViewController.swift in Sources */,
 				CCDDFB0E2A554366003BDAC6 /* GameRecordViewController.swift in Sources */,
@@ -742,7 +742,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.likelioncuk.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -781,7 +781,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.likelioncuk.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
