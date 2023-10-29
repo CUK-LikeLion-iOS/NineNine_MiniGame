@@ -2,7 +2,7 @@
 //  ShakeItModel.swift
 //  NineNine
 //
-//  Created by Demian on 2023/07/02.
+//  Created by Jinyoung Yoo on 10/30/23.
 //
 
 import UIKit
@@ -46,3 +46,4 @@ struct ShakeItGameData {
         return scoreBoardColor
     }
 }
+
