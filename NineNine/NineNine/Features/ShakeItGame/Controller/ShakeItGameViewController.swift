@@ -54,6 +54,9 @@ class ShakeItGameViewController: UIViewController, GameDelegate {
     
     // 진동(햅틱) 프로퍼티
     var shakingHaptic: UIImpactFeedbackGenerator!
+}
+
+extension ShakeItGameViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

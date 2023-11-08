@@ -58,9 +58,9 @@ class GameResultViewController: UIViewController {
     var gameRankImageList: [UIImage] {
         return gameResource.gameRankImages()
     }
+}
 
-    /* -------------------------------------------------------------------------- */
-    
+extension GameResultViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,7 +72,6 @@ class GameResultViewController: UIViewController {
     @IBAction func moveBackToStartBtnPressed(_ sender: UIButton) {
         loadingView.isHidden = false
         Task {
-            // 타임 아웃 구현해보기 목표,,,,
             await self.db.recordScore(score: gameScore, gameName: selectedGameTitle)
             loadingView.isHidden = true
             moveBackToStartingVC(vc: self)

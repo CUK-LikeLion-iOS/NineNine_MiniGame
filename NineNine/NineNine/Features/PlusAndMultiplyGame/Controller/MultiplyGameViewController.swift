@@ -44,7 +44,10 @@ class MultiplyGameViewController: UIViewController, GameDelegate {
     var userInput : Int?
     var inputCount :Int = 0
     var resultNum : Int?
-    
+}
+
+extension MultiplyGameViewController {
+
     @IBAction func operandButtonTapped(_ sender: UIButton)
     {
         switch sender.tag {

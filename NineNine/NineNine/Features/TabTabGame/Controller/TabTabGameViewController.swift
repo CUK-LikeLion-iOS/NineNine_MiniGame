@@ -47,9 +47,10 @@ class TabTabGameViewController: UIViewController, GameDelegate {
             scoreLabel.text = "\(score)"
         }
     }
-    
-    //-----------------------------------------------------------------------------//
-    
+
+}
+
+extension TabTabGameViewController {
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,8 +60,6 @@ class TabTabGameViewController: UIViewController, GameDelegate {
         setupTapTapGameUI()
         countDownGame()
     }
-    
-    //-----------------------------------------------------------------------------//
     
     //MARK: - 탭탭 게임 UI 설정
     private func setupTapTapGameUI() {
@@ -103,5 +102,4 @@ class TabTabGameViewController: UIViewController, GameDelegate {
             return 3
         }
     }
-
 }

@@ -26,7 +26,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             return data.gameImageArray()
         }
     }
+}
 
+extension HomeViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,11 +58,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             .layer.cornerRadius = cornerRadius
         gameContentsTableView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
-    
-    /* ----- UITableViewDataSource 프로토콜 필수 구현 메소드 ------ */
-
-    // Return the number of rows for the table.
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return gameTitleList.count
     }
     
@@ -74,10 +73,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-    /* ------------------------------------------------------ */
-    
-    /* ---------------- UITableView 관련 메서드 ---------------- */
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
     }
@@ -88,13 +83,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         moveToStartingVC(mainVC: self)
     }
     
-    /* ------------------------------------------------------ */
-
-    
-    /* -------------------- 오디오 관련 메서드 ------------------ */
-    
     // 오디오 플레이어가 성공적으로 종료되었으면 다시 재생, 아니면 할당 해제
-
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         if (flag) {
             player.prepareToPlay()
@@ -105,8 +94,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             audioPlayer = nil
         }
     }
-    
-    // AudioPlayerDelegate 필수 구현 메서드
+
     func playAudioPlayer() {
         player?.delegate = self
         player?.prepareToPlay()
@@ -116,11 +104,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func stopAudioPlayer() {
         player?.stop()
     }
-
-    /* -------------------- SelectedGameDelegate 필수 구현 메서드 ------------------ */
     
     func selectedGameNumber() -> Int {
         return gameNumber
     }
 }
-

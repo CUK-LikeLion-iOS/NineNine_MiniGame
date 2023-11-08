@@ -34,9 +34,10 @@ class GameRecordViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return "\(gameHighScore)"
     }
+}
 
-    /* -------------------------------------------------------------------------- */
-
+extension GameRecordViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,7 +53,7 @@ class GameRecordViewController: UIViewController, UITableViewDelegate, UITableVi
         
         highScoreLabel.text = "최고 점수: \(highScore)점"
     }
-    
+
     @IBAction func moveBackBtnPressed(_ sender: UIButton) {
         moveBackToStartingVC(vc: self)
     }

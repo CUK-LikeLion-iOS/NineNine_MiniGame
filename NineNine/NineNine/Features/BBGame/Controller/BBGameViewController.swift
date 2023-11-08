@@ -42,8 +42,9 @@ class BBGameViewController: UIViewController, GameDelegate {
             scoreLabel.text = "\(score)"
         }
     }
+}
 
-    /* -------------------------------------------------------------------------- */
+extension BBGameViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,4 +88,3 @@ class BBGameViewController: UIViewController, GameDelegate {
         gameTimer?.startTimer()
     }
 }
-
