@@ -47,7 +47,9 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecor
         return gameResource.gameTitleList()[selectedGameNumber]
     }
     
-    /* --------------------------- View LifeCycle 메서드 --------------------------- */
+}
+
+extension StartingViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +62,6 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecor
     override func viewWillAppear(_ animated: Bool) {
         audioDelegate?.playAudioPlayer()
     }
-
-    /* --------------------------- IBAction 메서드 --------------------------- */
 
     @IBAction func moveBack(_ sender: UIButton) {
         moveBackToHomeVC(vc: self)
@@ -86,8 +86,6 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecor
         player?.prepareToPlay()
         player?.play()
     }
-    
-    /* -------------------------------------------------------------------- */
 
     // 오디오 플레이어가 종료되었으면 할당 해제
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
@@ -95,7 +93,6 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecor
         audioPlayer = nil
     }
     
-    /* ------------------------- 네트워크 관련 메서드 ---------------------------- */
     
     func detectNetworkConnected() {
         // self.isConnectedNetwork로 조건문 검사를 하는 이유 -> 빼고 검사하면 이유는 모르겠지만 두 번 실행됨
@@ -120,8 +117,6 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecor
         self.monitor.cancel()
     }
     
-    /* ------------------------- Game Record Delegate 필수 구현 메서드 ------------------------ */
-    
     func gameRecord() -> [[String : Any]] {
         return gameScoreAndPlayTime
     }
@@ -129,8 +124,6 @@ class StartingViewController: UIViewController, AVAudioPlayerDelegate, GameRecor
     func gameHighScore() -> Int {
         return db.loadHighScore(gameName: selectedGameTitle)
     }
-    
-    /* ----------------------------------------------------------------------------------- */
     
     func renderSelectedGameResource() {
         let gameNumber = selectedGameNumber
